@@ -1,0 +1,26 @@
+body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1, h2 {
+  color: forestgreen;
+}
+
+#message1 {
+  color: darkgreen;
+  font-size: 20px;
+}
+
+#message2 {
+  color: darkgreen;
+  font-size: 20px;
+}
+
+#menu {
+  color: rgb(167, 4, 207);
+  font-size: 20px;
+}
+
+#continue {
+  border: 1px solid blue;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="/return_style.css">
+  <title>Return from the Mountain</title>
+</head>
+<body>
+  <h1>Return from the Mountain</h1>
+  <hr>
+  <p id="message1">You awake in the dark, the waters of forgetfulness still damp upon your lips. <br>
+    You have a sense of having lost something. You were on your way somewhere important...</p>
+  <p id="message2"></p>
+  <p id="menu"></p>
+  <button id="continue" onclick="myContinue()">Continue</button>
+
+  <script type="text/javascript">
+    let stage = 1;
+    let storyOne = "You awake in the dark, the waters of forgetfulness still damp upon your lips. You have a sense of having lost something. You were on your way somewhere important...";
+    let storyTwo = "You look around. A very faint glow comes from somewhere to your left. You see a shadow on the ground in that direction. It stires and murmurs slightly. You think it's another person. You hear a groan behind you and the shadow of a huge man stumbles to his feet and staggers towards the faint light. You realize the glow is a doorway. The man blocks most of the glow as he passes through and then out of sight. You get to your feet but choose to explore the space you are in. The person you first saw gets up and without a backward glance goes out through the door. You see someone else that you hadn't noticed before who similarly struggles to their feet and seeming to be in a daze, they also leave the room without acknowledging you or looking around them at all. ";
+    let storyThree = "You find the room is a large underground cavern of dark stone. There is a single large, rough doorway cut into the stone. As you explore, several other people appear out of nowhere and wander out the door.";
+    let storyFour = "A vision of a goddess appears to you. 'You are special and I will help you escape. First make your way across the great empty plains where the souls of the dead wander.' She disappears and you are alone in the cave.";
+    let storyFive = "Press the letters coresponding to the options in the menu to take actions.";
+    
+
+    setup();
+
+    function setup() {
+      stage = 1;
+      document.getElementById("message1").innerHTML = storyOne;
+      document.getElementById("message2").style.visibility = 'hidden';
+      document.getElementById("menu").style.visibility = 'hidden';
+    }
+
+    function myContinue() {
+      console.log(stage);
+      if (stage == 1) {
+        document.getElementById("message1").innerHTML = storyTwo;
+      } else if (stage == 2) {
+        document.getElementById("message1").innerHTML = storyThree;
+      } else if (stage == 3) {
+        document.getElementById("message1").innerHTML = storyFour;        
+      } else if (stage == 4) {
+        document.getElementById("message1").innerHTML = storyFive;
+        document.getElementById("message2").innerHTML = "In the cave";
+        document.getElementById("message2").innerHTML = "N - cave exit";
+        document.getElementById("continue").style.visibility = 'hidden';
+        document.getElementById("message2").style.visibility = 'visible';
+        document.getElementById("menu").style.visibility = 'visible';
+      }
+      stage += 1;
+    }
+  </script>
+
+  <!-- Javascript for keyboard input -->
+  <script type="text/javascript" src="/keyboard.js"></script>
+  <!-- Javascript for locations -->
+	<script type="text/javascript" src="/locations.js"></script>
+</body>
+</html>
