@@ -1,6 +1,5 @@
   function keyboardStart(){
-          // KEYBOARD FOR MOVEMENT
-			//Capture the keyboard arrow keys
+			//Capture the keyboard input
       let left = keyboardHelper(37),
           up = keyboardHelper(38),
           right = keyboardHelper(39),
@@ -13,91 +12,125 @@
           optB = keyboardHelper(66),
           optC = keyboardHelper(67),
           optD = keyboardHelper(68);
+          space = keyboardHelper(32);
 
       // Direction Buttons
       north.press = () => {
-        
+        if (locations[playerLoc[0]][playerLoc[1]].n == 1)
+          playerLoc[0] -= 1;
+          moveKey();
       };
 
       east.press = () => {
-       
+        if (locations[playerLoc[0]][playerLoc[1]].e == 1)
+          playerLoc[1] += 1;
+          moveKey();
       }
 
       south.press = () => {
-        
+        if (locations[playerLoc[0]][playerLoc[1]].s == 1)
+          playerLoc[0] += 1;
+          moveKey();
       }
 
       west.press = () => {
-        
+        if (locations[playerLoc[0]][playerLoc[1]].w == 1)
+          playerLoc[1] -= 1;
+          moveKey();
       }
       
       // action options
       optA.press = () => {      
-        
+        let inter = locations[playerLoc[0]][playerLoc[1]].inter;
+        if (inter != -1)  {
+          document.getElementById("actions").innerHTML = actions[inter].responseA;
+          window.setTimeout(resetMessage, 1000);
+          if (actions[inter].responseA == "You dig for gems") {
+            gems += 1;
+            document.getElementById("collect").innerHTML = "Gems: " + gems + "/100"; 
+            if (gems >= 5){
+              actions[inter].responseA = "It's bare rock now";
+            }
+          }
+          if ( actions[inter].responseA == "You find a bunch of food") {
+            food += 80;
+            actions[inter].responseA = "It's empty";
+            document.getElementById("collect").innerHTML = "Bites of Food: " + food + "/100"; 
+          }
+        }
       }
 
       optB.press = () => {      
-        
+        let inter = locations[playerLoc[0]][playerLoc[1]].inter;
+        if (inter != -1)  {
+          document.getElementById("actions").innerHTML = actions[inter].responseB;
+          window.setTimeout(resetMessage, 1000);
+          if ( actions[inter].responseB == "There is bread here"){
+            food += 15;
+            actions[inter].responseB = "It's empty";
+            document.getElementById("collect").innerHTML = "Bites of Food: " + food + "/100"; 
+          }
+        }
       }
       
       optC.press = () => {      
-        
+        let inter = locations[playerLoc[0]][playerLoc[1]].inter;
+        if (inter != -1)  {
+          document.getElementById("actions").innerHTML = actions[inter].responseC;
+          window.setTimeout(resetMessage, 1000);
+          if ( actions[inter].responseC == "You found a bit of jam") {
+            food += 5;
+            actions[inter].responseC = "It's empty";
+            document.getElementById("collect").innerHTML = "Bites of Food: " + food + "/100"; 
+          }
+        }
       }
 
-      optD.press = () => {      
-        
+      optD.press = () => {  
+        let inter = locations[playerLoc[0]][playerLoc[1]].inter;
+        if (inter != -1)  {
+          document.getElementById("actions").innerHTML = actions[inter].responseD;
+          window.setTimeout(resetMessage, 1000);
+        }        
       }
 
-      //Left arrow key `press` method
+
+      // Arrow Keys - change dir player is facing during fight
       left.press = () => {
-        //Change the player's velocity when the key is pressed
-        player.vx = -5;
-        player.vy = 0;
+        document.getElementById("playerX").innerHTML = 	"&lArr;";
+        document.getElementById("playerX").additional = "l";
       };      
       left.release = () => {
-        //If the left arrow has been released, and the right arrow isn't down,
-        //and the player isn't moving vertically so  stop the player
-        if (!right.isDown && player.vy === 0) {
-          player.vx = 0;
-        }
       };
 
-      //Up
       up.press = () => {
-        player.vy = -5;
-        player.vx = 0;
+        document.getElementById("playerX").innerHTML = 	"&uArr;";
+        document.getElementById("playerX").additional = "u";
       };
       up.release = () => {
-        if (!down.isDown && player.vx === 0) {
-          player.vy = 0;
-        }
       };
 
-      //Right
       right.press = () => {
-        player.vx = 5;
-        player.vy = 0;
+        document.getElementById("playerX").innerHTML = 	"&rArr;";
+        document.getElementById("playerX").additional = "r";
       };
       right.release = () => {
-        if (!left.isDown && player.vy === 0) {
-          player.vx = 0;
-        }
       };
 
-      //Down
       down.press = () => {
-        player.vy = 5;
-        player.vx = 0;
+        document.getElementById("playerX").innerHTML = 	"&dArr;";
+        document.getElementById("playerX").additional = "d";
       };
       down.release = () => {
-        if (!up.isDown && player.vx === 0) {
-          player.vy = 0;
-        }
       };
+
+      space.press = () => { 
+        playerHit();
+      }
   }
+  keyboardStart();
   
-  
-  //The `keyboard` helper function
+  // Keyboard helper function
   function keyboardHelper(keyCode) {
     var key = {};
     key.code = keyCode;

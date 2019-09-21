@@ -6,6 +6,14 @@ h1, h2 {
   color: forestgreen;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+#instructions {
+  color: black;
+  font-size: 18px;
+}
 #message1 {
   color: darkgreen;
   font-size: 20px;
@@ -15,12 +23,83 @@ h1, h2 {
   color: darkgreen;
   font-size: 20px;
 }
+#message3 {
+  color: black;
+  font-size: 18px;
+}
 
 #menu {
   color: rgb(167, 4, 207);
-  font-size: 20px;
+  font-size: 18px;
+}
+
+#contents {
+  color: rgb(167, 4, 207);
+  font-size: 18px;
 }
 
 #continue {
   border: 1px solid blue;
+}
+
+#actions {
+  color: black;
+  font-size: 18px;
+}
+
+#collect {
+  color: blue;
+  font-size: 20px;
+}
+
+#fighting {
+  position: fixed;
+  z-index: 1;
+  width: 450px;
+  height: 450px;
+  top: 90px;
+  left: 20px;  
+}
+#fightstats {
+  position: fixed;
+  z-index: 1;
+  width: 450px;
+  height: 450px;
+  top: 115px;
+  left: 480px; 
+  font-size: 26px;
+}
+#minons {
+  font-size: 20px;
+}
+#howto {
+  font-size: 16px;
+}
+
+table {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  background-color: whitesmoke;
+  border: 5px double black;
+  border-collapse: collapse;
+}
+
+tr {  
+  width: 100%;
+  height: 50px;
+}
+
+td {
+  border: 1px solid black;
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  color: red;
+  font-size: 28px;
+}
+
+#playerX {
+  color: darkgreen;
+  font-size: 36px;
 }

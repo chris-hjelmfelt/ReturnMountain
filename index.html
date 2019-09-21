@@ -10,53 +10,218 @@
 <body>
   <h1>Return from the Mountain</h1>
   <hr>
+  <p id="instructions"></p>
   <p id="message1">You awake in the dark, the waters of forgetfulness still damp upon your lips. <br>
-    You have a sense of having lost something. You were on your way somewhere important...</p>
+    You have a sense of having lost something. You were on your way somewhere important...</p>  
   <p id="message2"></p>
-  <p id="menu"></p>
+  <p id="message3"></p>
+  <p id="menu"></p> 
+  <p id="contents"></p> 
   <button id="continue" onclick="myContinue()">Continue</button>
+  <p id="actions"></p> 
+  <p id="collect"></p>
+ 
+  <div id="fighting">  
+    <table>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td id="playerX" additional="u">&uArr;</td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+    </table>
+  </div>
+  <div id="fightstats">
+    <span id="hit">Hit Points: 5/5</span><br>
+    <span id="minons">Minons: 20/20</span><br>
+    <span id="howto"></span>
+  </div>
+  
 
   <script type="text/javascript">
     let stage = 1;
+    let playerLoc = [5,5];
+    let moveAllowed = false;
     let storyOne = "You awake in the dark, the waters of forgetfulness still damp upon your lips. You have a sense of having lost something. You were on your way somewhere important...";
     let storyTwo = "You look around. A very faint glow comes from somewhere to your left. You see a shadow on the ground in that direction. It stires and murmurs slightly. You think it's another person. You hear a groan behind you and the shadow of a huge man stumbles to his feet and staggers towards the faint light. You realize the glow is a doorway. The man blocks most of the glow as he passes through and then out of sight. You get to your feet but choose to explore the space you are in. The person you first saw gets up and without a backward glance goes out through the door. You see someone else that you hadn't noticed before who similarly struggles to their feet and seeming to be in a daze, they also leave the room without acknowledging you or looking around them at all. ";
     let storyThree = "You find the room is a large underground cavern of dark stone. There is a single large, rough doorway cut into the stone. As you explore, several other people appear out of nowhere and wander out the door.";
     let storyFour = "A vision of a goddess appears to you. 'You are special and I will help you escape. First make your way across the great empty plains where the souls of the dead wander.' She disappears and you are alone in the cave.";
     let storyFive = "Press the letters coresponding to the options in the menu to take actions.";
-    
+    let storySix = "Press arrow keys to turn. Press Spacebar to hit."
+    let food = 100;
+    let gems = 5;
 
     setup();
 
+    // Do this at the start of game
     function setup() {
       stage = 1;
       document.getElementById("message1").innerHTML = storyOne;
       document.getElementById("message2").style.visibility = 'hidden';
       document.getElementById("menu").style.visibility = 'hidden';
+      document.getElementById("collect").style.visibility = 'hidden';
+      document.getElementById("fighting").style.visibility = 'hidden';
+      document.getElementById("fightstats").style.visibility = 'hidden';
     }
 
+    // User presses the continue button     
     function myContinue() {
-      console.log(stage);
-      if (stage == 1) {
+      if (stage == 1) { 
         document.getElementById("message1").innerHTML = storyTwo;
       } else if (stage == 2) {
         document.getElementById("message1").innerHTML = storyThree;
       } else if (stage == 3) {
         document.getElementById("message1").innerHTML = storyFour;        
       } else if (stage == 4) {
-        document.getElementById("message1").innerHTML = storyFive;
-        document.getElementById("message2").innerHTML = "In the cave";
-        document.getElementById("message2").innerHTML = "N - cave exit";
+        document.getElementById("instructions").innerHTML = storyFive;
+        document.getElementById("message1").innerHTML = locations[5][5].title;
+        document.getElementById("message2").innerHTML = locations[5][5].des;
+        document.getElementById("menu").innerHTML = showMenu(5,5);
+        document.getElementById("contents").innerHTML = showContents(5,5);
         document.getElementById("continue").style.visibility = 'hidden';
         document.getElementById("message2").style.visibility = 'visible';
         document.getElementById("menu").style.visibility = 'visible';
+        moveAllowed = true;
+      } else if (stage == 5) {
+        document.getElementById("continue").style.visibility = 'hidden';
+        document.getElementById("instructions").innerHTML = storyFive;
+        document.getElementById("collect").style.visibility = 'visible';
+        printLoc();
+        moveAllowed = true;
+      } else if (stage == 6) {
+        document.getElementById("continue").style.visibility = 'hidden';
+        document.getElementById("instructions").innerHTML = storyFive;
+        printLoc();
+        moveAllowed = true;
+      } else if (stage == 7) {
+        document.getElementById("continue").style.visibility = 'hidden';
+        document.getElementById("instructions").innerHTML = storyFive;
+        document.getElementById("collect").style.visibility = 'visible';
+        printLoc();
+        moveAllowed = true;
+      }else if (stage == 8) {
+        document.getElementById("continue").style.visibility = 'hidden';
+        document.getElementById("instructions").innerHTML = storyFive;
+        printLoc();
+        moveAllowed = true;
+      } else if (stage == 9) {
+        document.getElementById("continue").style.visibility = 'hidden';
+        document.getElementById("fighting").style.visibility = 'visible';
+        document.getElementById("fightstats").style.visibility = 'visible';
+        document.getElementById("collect").innerHTML = "";
+        document.getElementById("collect").style.visibility = 'hidden';
+        startFight();
+      } else if (stage == 10) {
+        document.getElementById("continue").style.visibility = 'hidden';
+        document.getElementById("instructions").innerHTML = storyFive;
+        printLoc();
+        moveAllowed = true;
       }
       stage += 1;
+    }
+
+
+    function moveKey() {
+      row = playerLoc[0];
+      col = playerLoc[1];
+      if (row == 9 & col == 5 & stage == 5) {  // encounter the souls of the dead for the first time
+        cutScene("A large croud of the souls of the dead are crowded here. They are hungry.");
+        document.getElementById("collect").innerHTML = "Bites of Food: 0/100"; 
+      } else if (row == 9 & col == 5 & stage == 6 & food >= 100) { // feed the souls of the dead
+        cutScene("You feed the souls of the dead. They let you pass.");
+        document.getElementById("collect").style.visibility = 'hidden';
+        document.getElementById("collect").innerHTML = "";   
+        console.log(stage);             
+        locations[row][col].s = 1;
+      } else if (row == 10 & col == 7 & stage == 7) {  // encounter the two minons for the first time
+        cutScene("Two minons block your way. They want gems.");
+        document.getElementById("collect").innerHTML = "Gems: 0/5"; 
+      } else if (row == 10 & col == 7 & stage == 8 & gems >= 5) {  // give minons gems
+        cutScene("You give the minons gems. They let you pass.");
+        document.getElementById("collect").style.visibility = 'hidden';
+        document.getElementById("collect").innerHTML = "";
+        locations[row][col].e = 1;
+      } else if (row == 7 & col == 10 & stage == 9) {  // encounter minon fight
+        cutScene("Death has sent his minons to attack you.");
+        document.getElementById("collect").innerHTML = storySix;
+        document.getElementById("collect").style.visibility = 'visible';
+      } else {
+        printLoc();
+      }
+    }
+
+    // print location info
+    function printLoc() {
+      row = playerLoc[0];
+      col = playerLoc[1];
+      document.getElementById("message1").innerHTML = locations[row][col].title;
+      document.getElementById("message2").innerHTML = locations[row][col].des;
+      document.getElementById("menu").innerHTML = showMenu(row,col);
+      document.getElementById("contents").innerHTML = showContents(row,col);
+    }
+
+    // Conversations etc.
+    function cutScene(p) {
+      moveAllowed = false;
+      document.getElementById("message1").innerHTML = p;
+      document.getElementById("message2").innerHTML = "";
+      document.getElementById("menu").innerHTML = "";
+      document.getElementById("contents").innerHTML = "";
+      document.getElementById("instructions").innerHTML = "";
+      document.getElementById("continue").style.visibility = 'visible';
+    }
+
+
+    // print the directions menu
+    function showMenu(row, col) {
+      var north, east, south, west;
+      var dirString = "";
+      if (locations[row][col].n == 1) {
+        dirString += "N. go north  ";        
+      }
+      if (locations[row][col].e == 1) {
+        dirString += "E. go east  ";         
+      }
+      if (locations[row][col].s == 1) {
+        dirString += "S. go south  ";        
+      }
+      if (locations[row][col].w == 1) {
+        dirString += "W. go west  ";        
+      }
+      return dirString;
+    }
+
+    // print the stuff at the location
+    function showContents(row, col) {
+      var north, east, south, west;
+      var contString = "";
+      var inter = locations[row][col].inter;
+      if (inter != -1) {
+        if (actions[inter].a != "")
+          contString += "A. " + actions[inter].a + "  ";  
+        if (actions[inter].b != "")
+          contString += "B. " + actions[inter].b + "  "; 
+        if (actions[inter].c != "")
+          contString += "C. " + actions[inter].c + "  "; 
+        if (actions[inter].d != "")
+          contString += "D. " + actions[inter].d + "  ";   
+      }         
+      return contString;
+    }
+
+    function resetMessage() {
+      document.getElementById("actions").innerHTML = "";
     }
   </script>
 
   <!-- Javascript for keyboard input -->
   <script type="text/javascript" src="/keyboard.js"></script>
   <!-- Javascript for locations -->
-	<script type="text/javascript" src="/locations.js"></script>
+  <script type="text/javascript" src="/locations.js"></script>
+  <!-- Javascript for minon fight -->
+	<script type="text/javascript" src="/fight.js"></script>
 </body>
 </html>
