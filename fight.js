@@ -1,13 +1,13 @@
 var cell = document.getElementById('fighting').getElementsByTagName('td');
 var minonsCount = 0;
-var deadMinons = 20;
+var deadMinons = 0;
 var hitPoints = 5;
 var attack = true;
 var nearU = false, nearL = false, nearR = false, nearD = false;  // player threatened from direction
 
 function startFight() {
   document.getElementById("message1").innerHTML = "";
-  document.getElementById("howto").innerHTML = storySix;
+  document.getElementById("howto").innerHTML = instructTwo;
   document.getElementById("continue").style.visibility = "hidden";
   window.setInterval(moveMinons, 1000);
 }

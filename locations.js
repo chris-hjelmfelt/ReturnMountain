@@ -1,4 +1,4 @@
-var place = {title:"Initialized", des:"", n:0, e:0, s:0, w:0, a:"", b:"", c:"", d:""};
+var place = {title:"Initialized", des:"", n:0, e:0, s:0, w:0, inter:0};
 var locations = matrix(16,16,place);
 var actions = [];
 var stuff = "";
@@ -12,7 +12,7 @@ xhttp.onreadystatechange = function() {
     fillLocations(xhttp.responseText);    
   }
 };
-xhttp.open("GET", "places.json", true);
+xhttp.open("GET", "ReturnSubmit/places.json", true);
 xhttp.send();
 
 // Get data from interact.json
@@ -23,7 +23,7 @@ xhttp2.onreadystatechange = function() {
     fillActions(xhttp2.responseText);    
   }
 };
-xhttp2.open("GET", "interact.json", true);
+xhttp2.open("GET", "ReturnSubmit/interact.json", true);
 xhttp2.send();
 
 // Use JSON to fill the locations array with proper info

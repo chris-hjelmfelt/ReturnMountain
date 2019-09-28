@@ -1,0 +1,188 @@
+To Do
+------ 
+Fix entering and exiting minon fight. Add next story piece.
+Concentration Wall
+Ending
+Administrative - book, sudoku, name
+Nice Formatting
+Reset -> stage = 1, playerLoc = [5,5]
+
+
+Return from the Mountain
+-----------------------------
+1.
+You awake in the dark, the waters of forgetfulness still damp upon your lips. 
+You have a sense of having lost something. You were on your way somewhere important...
+
+2.
+You look around. A very faint glow comes from somewhere to your left. You see a 
+shadow on the ground in that direction. It stires and murmurs slightly. You think it's 
+another person. You hear a groan behind you and the shadow of a huge man stumbles 
+to his feet and staggers towards the faint light. You realize the glow is a doorway. The
+man blocks most of the glow as he passes through and then out of sight. You get to your 
+feet but choose to explore the space you are in. The person you first saw gets up and 
+without a backward glance goes out through the door. You see someone else that you 
+hadn't noticed before who similarly struggles to their feet and seeming to be in a daze, 
+they also leave the room without acknowledging you or looking around them at all. 
+
+3.
+You find the room is a large underground cavern of dark stone. There is a single large, 
+rough doorway cut into the stone. As you explore, several other people appear out of 
+nowhere and wander out the door.
+
+4.
+A vision of a goddess appears to you. 'You are special and I will help you escape. First 
+make your way across the great empty plains where the souls of the dead wander.' She 
+disappears and you are alone in the cave.
+
+5.
+The souls of the dead are crowded here, blocking your way as far as your eyes can see. They look at you
+and you hear whispering..
+"So hungry...", "Everything is nothingness...", "Oh for the taste of food again...", 
+"What was it like to feel, to taste...", "So hungry..."
+Their eyes are pleading to you. You think if you found even a single bit of food for each of them that
+they would be satisfied and let you pass.
+Search and find 100 bites of food.
+
+6.
+You pass out the small morsals of food. The souls of the dead seem to hold the bite of food in their
+mouths, savoring the experience of tasting something again. They part the way, making a path for you to 
+walk through.
+
+7. 
+You encounter two of Death's minons. They are humanoid in shape. They are very large, with rough gray skin.
+Their eyes are orangish red and they are dressed in leathery armor. They block your way.
+"Where are you going human? Why should we let you pass?"
+This sounds like you may be able to persuade them. 
+"What could I do to earn my way through?" you ask them.
+"Oh, a human that bargains. Well the thing we like most is gemstones. Death won't let us in the gemstone fields 
+but maybe you can get some."
+Mine 5 gems.
+
+8.
+You return with the gemstones. The minons eyes are large with surprize and pleasure. 
+"Very well human, you may pass."
+They move out of the way.
+
+9.
+Death has sent an army of minon's against you. These are smaller than those you encountered before but there
+are quite a few of them. They are coming at you from all sides.
+
+
+10.
+Here rests a single huge book on a pedistal. It is far larger than any other book you have ever seen. You struggle
+to try and lift it open. You feel a faint breeze and a slight tingling around your hands. You are able to open it
+now.
+You see a strange grid with some letters. You sense it speak into your mind.
+"Place the letters A-H into the grid so that any single line top to bottom or side to side contains all letters 
+and no duplicates. This will unlock the list of names of those who reside among the living."
+
+11.
+You solve the puzzle and unlock the list of names. You write your name in the book and see a door you hadn't 
+noticed before in the wall to the north.
+
+12.
+There is a tremendous light here. You have escaped from the mountain but you sense a wall before you. You
+will have to find a way to pass through before you can fully return to life.
+
+13.
+The goddess appears. 
+"You have done very well. I commend you. However, there is one final task. This wall is within your own mind. 
+You cannot return to consciousness without passing through it. It will take great concentration. I hope
+you can do it."
+The goddess disappears.
+You focus your attention on the wall. You think you can perceive a path of sorts but it seems almost to shift
+within a kalidoscope of shapes and colors. 
+Press the arrow keys when you see the word corresponding to the direction. If you miss one or take a wrong turn
+you will have to start over.
+
+14.
+You have broken through the wall! You take a deep breath and blink your eyes. There are clouds above you and you
+are lying on the ground. Someone is speaking.
+"They're alive!"
+"You're going to be Ok, everything is going to be Ok."
+You've returned from the mountain. You get a second chance at life.
+
+
+
+Locations:
+--------------
+Fortress:
+
+Entry Way - The floor is smooth, black obsideon. Dark, red and black banners hang on the wall. Lanterns
+light the place, casting deep shadows and filling the room with a smell of kerosene mixed with sulfur. Ahead
+is a large room.
+
+The great hall - three long tables fill this area and the surrounding space. They are made of smooth, dark gray
+stone with iron inlayed around the edges. There is nothing on the tables. Each has a number of fine looking, heavy
+wooden chairs around it. Hanging from the ceiling are two huge chandeliers filled with candles.
+
+Part of the great hall - three long tables fill this area and the surrounding space. A tapestry on the east wall
+displays a battle scene.
+
+Fireplace in the great hall - three long tables fill this area and the surrounding space. An enormous fireplace fills 
+the east wall. The exterior is simple, heavy dark wood, but the interior is lined with skulls cemented together. The
+fire is not lit.
+
+Part of the great hall - three long tables fill this area and the surrounding space. A door to the west leads into 
+the kitchens.
+
+The kitchen - here is an enormous kitchen with a great central island, baking ovens, cooktops and wash sinks. Nothing is 
+being prepared. It doesn't look like it's been used in a long time.
+
+The pantry - There is very little in here. Apparently Death doesn't host a lot of dinner parties.
+
+
+Rocky Wastes:
+
+You enter the rocky wastes. This area looks bleak and desolate. It stretches a long distance. The cavern ceiling 
+is high above and Death's fortress looms close to one side. There is a single path through a field of boulders, 
+some of which look blasted and scorched in some way.
+
+The cavern starts to narrow here. The ceiling is only 20 feet or so above and the trail seems to be leading somewhere.
+
+You see a large stone building ahead with columns out front. It looks ancient but also like it is well 
+kept and probably still in use. There is a huge wooden door 10 feet tall and a short wooden door 4 feet tall.
+
+You enter what clearly seems to be an administrative building of some sort. Large wooden desks line each side of
+the room. There are wooden cabinents and drawers and large, leather bound books. A few administrative minons are
+here. They are only about three feet tall, with creamy yellow skin and big ears. They seem vaguely curious about
+you but mostly they are preoccupied with their work.
+
+
+Maze:
+Ahead of you is a tunnel into the black rock. You think this might be the way out.
+
+You enter a maze. The tunnel branches here.
+
+You see a bright light ahead. You have found the way out of Deaths mountain!
+
+-----------------
+
+5 Roles:
+Lover - ring of love
+Freedom Fighter - power aura
+Parent - candle
+Prince - septure of law
+Scientist - compass
+- each has a different goddess helping them, tools to escape, and storyline
+
+choose male or female 
+choose easy, medium, hard
+
+5 steps to escape:
+Move through blocking people and minons - gather resources (more on hard)
+	Minons want gem stones you can mine for
+	Humans want bread
+	ring of love makes humans part way for you without resources
+Fight minions - very simple graphics, face them and hit a key to slash and kill them
+	(more on hard, two slashes to kill), power aura kills all nearby (auto fires when full)
+Sudoku like puzzle - use a name with 7-9 letters and use them to fill a grid (less filled hard)
+	scepter of law wins a administrative minon to your cause, it fills in some blanks as you go
+Maze - chased by death (faster on hard), candle helps guide the way
+	if you fail you are transported back but the other challenges are very easy the second time
+Concentration Wall - alpha numeric text scrolls by (faster on hard), 
+	inside are words: up, down, left, right
+	click arrows in correct order to break through
+	compass helps quide the way
+
