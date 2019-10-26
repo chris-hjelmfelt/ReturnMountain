@@ -86,7 +86,7 @@
   {"title":"The Cave", "des":"It's very dark in here, it is a cavern cut into dark stone.", "n":0, "e":0, "s":1, "w":0, "inter":0},
   {"title":"Rock", "des":"this is a mistake", "n":0, "e":0, "s":0, "w":1, "inter":1},
   {"title":"Rock", "des":"this is a mistake", "n":0, "e":0, "s":1, "w":0, "inter":2}, 
-  {"title":"Administrative Office", "des":"A single enormous book lies on a stand in the middle of the room.", "n":0, "e":1, "s":0, "w":0, "inter":3},
+  {"title":"Administrative Office", "des":"A single enormous book lies on a stand in the middle of the room.", "n":1, "e":1, "s":0, "w":0, "inter":3},
   {"title":"Administrative Office", "des":"You enter what clearly seems to be an administrative building of some sort. Large wooden desks line each side of the room. There are wooden cabinents and drawers and large, leather bound books. A few administrative minons are here. They are only about three feet tall, with creamy yellow skin and big ears. They seem vaguely curious about you but mostly they are preoccupied with their work.", "n":0, "e":1, "s":0, "w":1, "inter":4},
   {"title":"Rocky Wasteland", "des":"You see a large stone building ahead with columns out front. It looks ancient but also like it is well kept and probably still in use. There is a huge wooden door 10 feet tall and a short wooden door 4 feet tall.", "n":0, "e":0, "s":1, "w":1, "inter":5},
   {"title":"Rock", "des":"this is a mistake", "n":0, "e":0, "s":0, "w":1, "inter":-1},

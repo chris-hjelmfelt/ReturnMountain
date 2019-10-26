@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="return_style.css">
+  <title>Return from the Mountain</title>
+</head>
+<body>
+  <h1>Return from the Mountain</h1>
+  <hr>
+  <div id="cutawayBox">
+    <span id="storyPart"></span>    <br>
+    <button id="continue" onclick="myContinue()">Continue</button>
+  </div>  
+  <p id="message1"></p>  
+  <p id="message2"></p>
+  <p id="message3"></p>
+  <p id="instructions"></p>
+  <p id="menu"></p> 
+  <p id="contents"></p>   
+  <p id="actions"></p> 
+  <p id="collect"></p>
+  <button id="openmap1" onclick="openMap(1)">Partial Map</button> (spoilers)<br>
+
+  <div id="fighting">  
+    <table>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td id="playerX" additional="u">&uArr;</td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+    </table>
+  </div>
+  <div id="fightstats">
+    <span id="hit">Hit Points: 5/5</span><br>
+    <span id="minons">Minons: 20/20</span><br>
+    <span id="howto"></span>
+  </div>
+  <div id="map1">
+    <img src="partial_map.jpg" width="400">
+  </div>
+  <div id="map2">
+    <img src="partial_map.jpg" width="400">
+  </div>
+  
+
+  <script type="text/javascript">
+    // Variables
+    let startPos = 1;
+    let start = [];     
+    start[1] = {title:"startLoc", row:5, col:5, stage:1, test:false};
+    start[2] = {title:"testFight", row:8, col:10, stage:9, test:true};
+    start[3] = {title:"testAdmin", row:5, col:10, stage:10, test:true};
+    start[4] = {title:"testMaze", row:3, col:7, stage:11, test:true};
+    start[5] = {title:"testEnd", row:15, col:15, stage:12, test:true};
+    let stage = start[startPos].stage;
+    let playerLoc = [start[startPos].row, start[startPos].col];
+    let testing = start[startPos].test;
+
+    let moveAllowed = false;
+    let instructOne = "Press the letters coresponding to the options in the menu to take actions.";
+    let instructTwo = "Press arrow keys to turn. Press Spacebar to hit.";
+
+    // Story pieces for cutaway scenes
+    let storyOne = "You awake in the dark, the waters of forgetfulness still damp upon your lips.<br> You have a sense of having lost something. You were on your way somewhere important...";
+    let storyTwo = "You look around. A very faint glow comes from somewhere to your left. You see a shadow on the ground in that direction. It stires and murmurs slightly.<br>  You think it's another person.You hear a groan behind you and the shadow of a huge man stumbles to his feet and staggers towards the faint light.<br> You realize the glow is a doorway. The man blocks most of the glow as he passes through and then out of sight.<br> You get to your feet but choose to explore the space you are in. The person you first saw gets up and without a backward glance goes out through the door.<br> You see someone else that you hadn't noticed before who similarly struggles to their feet and seeming to be in a daze,<br> they also leave the room without acknowledging you or looking around them at all. ";
+    let storyThree = "You find the room is a large underground cavern of dark stone. There is a single large, rough doorway cut into the stone.<br> As you explore, several other people appear out of nowhere and wander out the door.";
+    let storyFour = "A vision of a goddess appears to you.<br> 'You are special. Your mind is still alert, you have not lost yourself.<br> I will help you escape. First make your way across the great empty plains where the souls of the dead wander.'<br> She disappears and you are alone in the cave.";
+    let storyFive = 'The souls of the dead are crowded here, blocking your way as far as your eyes can see. They look at you and you hear whispering.<br> "So hungry...", "Everything is nothingness...", "Oh for the taste of food again...", "What was it like to feel, to taste...", "So hungry..."<br> Their eyes are pleading to you. You think if you found even a single bit of food for each of them that they would be satisfied and let you pass.<br> Search and find 100 bites of food.';
+    let storySix = 'You pass out the small morsals of food. The souls of the dead seem to hold the bite of food in their mouths, savoring the experience of tasting something again. They part the way, making a path for you to walk through.';
+    let storySeven = 'You encounter two of Deaths minons. They are humanoid in shape. They are very large, with rough gray skin. Their eyes are orangish red and they are dressed in leathery armor. They block your way.<br> "Where are you going human? Why should we let you pass?"<br> This sounds like you may be able to persuade them.<br> "What could I do to earn my way through?" you ask them.<br> "Oh, a human that bargains. Well the thing we like most is gemstones. Death wont let us in the gemstone fields but maybe you can get some."<br> Mine 5 gems.';
+    let storyEight = 'You return with the gemstones. The minons eyes are large with surprize and pleasure. "Very well human, you may pass." They move out of the way.';
+    let storyNine = 'Death has sent an army of minons against you. These are smaller than those you encountered before but there are quite a few of them. They are coming at you from all sides.';
+    let storyTen = '';
+    let storyEleven = "Here rests a single huge book on a pedestal. It is far larger than any other book you have ever seen. You struggle to try and lift it open.<br> You feel a faint breeze and a slight tingling around your hands. You are able to open it now.<br> You sense it speak into your mind. This is the list of names of those who reside among the living.<br> You write your name in the book and see a door you hadn't noticed before in the wall to the north.";
+    let storyTwelve = 'There is a tremendous light here. You have escaped from the mountain but you sense a wall before you. You will have to find a way to pass through before you can fully return to life.';
+    
+    let food = 0;
+    let gems = 0;
+
+    // Start Game
+    setup();
+
+    // Do this at the start of game
+    function setup() {
+      document.getElementById("storyPart").innerHTML = storyOne;
+      document.getElementById("message2").style.visibility = 'hidden';
+      document.getElementById("menu").style.visibility = 'hidden';
+      document.getElementById("collect").style.visibility = 'hidden';
+      document.getElementById("fighting").style.visibility = 'hidden';
+      document.getElementById("fightstats").style.visibility = 'hidden';
+      document.getElementById("map1").style.visibility = 'hidden';
+      document.getElementById("map2").style.visibility = 'hidden';      
+      document.getElementById("cutawayBox").style.visibility = 'visible';
+      
+      // for testing:
+      if (testing == true) {
+        document.getElementById("menu").style.visibility = 'visible';
+        document.getElementById("message2").style.visibility = 'visible';
+        window.setTimeout(moveKey, 1000);
+        window.setTimeout(printLoc, 1000);       
+        moveAllowed = true;       
+        document.getElementById("cutawayBox").style.visibility = 'hidden';
+      }
+    }
+
+    // User presses the continue button     
+    function myContinue() {
+      if (stage == 1) { 
+        document.getElementById("storyPart").innerHTML = storyTwo;
+        document.getElementById("cutawayBox").style.visibility = 'visible';
+      } else if (stage == 2) {
+        document.getElementById("storyPart").innerHTML = storyThree;
+        document.getElementById("cutawayBox").style.visibility = 'visible';
+      } else if (stage == 3) {
+        document.getElementById("storyPart").innerHTML = storyFour;
+        document.getElementById("cutawayBox").style.visibility = 'visible';        
+      } else if (stage == 4) {
+        document.getElementById("instructions").innerHTML = instructOne;
+        document.getElementById("message1").innerHTML = locations[5][5].title;
+        document.getElementById("message2").innerHTML = locations[5][5].des;
+        document.getElementById("menu").innerHTML = showMenu(5,5);
+        document.getElementById("contents").innerHTML = showContents(5,5);
+        document.getElementById("message2").style.visibility = 'visible';
+        document.getElementById("menu").style.visibility = 'visible';
+        document.getElementById("cutawayBox").style.visibility = 'hidden';
+        moveAllowed = true;
+      } else if (stage == 5) {
+        document.getElementById("instructions").innerHTML = instructOne;
+        document.getElementById("collect").style.visibility = 'visible';
+        document.getElementById("cutawayBox").style.visibility = 'hidden';
+        printLoc();
+        moveAllowed = true;
+      } else if (stage == 6) {
+        document.getElementById("instructions").innerHTML = instructOne;
+        document.getElementById("cutawayBox").style.visibility = 'hidden';
+        printLoc();
+        moveAllowed = true;
+      } else if (stage == 7) {
+        document.getElementById("instructions").innerHTML = instructOne;
+        document.getElementById("collect").style.visibility = 'visible';
+        document.getElementById("cutawayBox").style.visibility = 'hidden';
+        printLoc();
+        moveAllowed = true;
+      }else if (stage == 8) {
+        document.getElementById("instructions").innerHTML = instructOne;
+        document.getElementById("cutawayBox").style.visibility = 'hidden';
+        printLoc();
+        moveAllowed = true;
+      } else if (stage == 9) {
+        document.getElementById("fighting").style.visibility = 'visible';
+        document.getElementById("fightstats").style.visibility = 'visible';
+        document.getElementById("collect").innerHTML = "";
+        document.getElementById("collect").style.visibility = 'hidden';
+        document.getElementById("cutawayBox").style.visibility = 'hidden';
+        startFight();
+      } else if (stage == 10) {
+        document.getElementById("menu").style.visibility = 'visible';
+        document.getElementById("message2").style.visibility = 'visible';
+        document.getElementById("instructions").innerHTML = instructOne;
+        document.getElementById("cutawayBox").style.visibility = 'hidden';
+        printLoc();
+        moveAllowed = true;
+      } else if (stage == 11) {
+        escapeMount(1);
+      } else if (stage == 12) {
+        escapeMount(2);
+      } else if (stage == 13) {
+        escapeMount(3);
+        document.getElementById("collect").style.visibility = 'visible';
+        document.getElementById("cutawayBox").style.visibility = 'hidden';
+        document.getElementById("collect").innerHTML = "THE END"; 
+      }
+      stage += 1;
+    }
+
+
+    function moveKey() {
+      row = playerLoc[0];
+      col = playerLoc[1];
+      if (row >= 16) { // escape the maze
+        cutScene(storyTwelve);
+        document.getElementById("continue").style.visibility = 'visible';
+      } else if (row == 9 & col == 5 & stage == 5) {  // encounter the souls of the dead for the first time
+        cutScene(storyFive);
+        document.getElementById("collect").innerHTML = "Bites of Food: 0/100"; 
+      } else if (row == 9 & col == 5 & stage == 6 & food >= 100) { // feed the souls of the dead
+        cutScene(storySix);
+        document.getElementById("collect").style.visibility = 'hidden';
+        document.getElementById("collect").innerHTML = "";   
+        console.log(stage);             
+        locations[row][col].s = 1;
+      } else if (row == 10 & col == 7 & stage == 7) {  // encounter the two minons for the first time
+        cutScene(storySeven);
+        document.getElementById("collect").innerHTML = "Gems: 0/5"; 
+      } else if (row == 10 & col == 7 & stage == 8 & gems >= 5) {  // give minons gems
+        cutScene(storyEight);
+        document.getElementById("collect").style.visibility = 'hidden';
+        document.getElementById("collect").innerHTML = "";
+        locations[row][col].e = 1;
+      } else if (row == 7 & col == 10 & stage == 9) {  // encounter minon fight
+        cutScene(storyNine);
+        document.getElementById("collect").innerHTML = instructTwo;
+        document.getElementById("collect").style.visibility = 'visible';
+      } else if (row == 5 & col == 8 & stage == 10) {  // encounter book of names
+        cutScene(storyEleven);
+        locations[row][col].n = 1;
+      } else {
+        printLoc();
+      }
+    }
+
+    // print location info
+    function printLoc() {
+      row = playerLoc[0];
+      col = playerLoc[1];
+      document.getElementById("message1").innerHTML = locations[row][col].title;
+      if (locations[row][col].title != "In the Maze") {
+        document.getElementById("message2").innerHTML = locations[row][col].des;
+      }
+      document.getElementById("menu").innerHTML = showMenu(row,col);
+      document.getElementById("contents").innerHTML = showContents(row,col);
+    }
+
+    // Conversations etc.
+    function cutScene(p) {
+      moveAllowed = false;
+      document.getElementById("storyPart").innerHTML = p;
+      document.getElementById("message2").innerHTML = "";
+      document.getElementById("menu").innerHTML = ""; 
+      document.getElementById("contents").innerHTML = "";
+      document.getElementById("instructions").innerHTML = "";
+      document.getElementById("cutawayBox").style.visibility = 'visible';
+      document.getElementById("continue").style.visibility = 'visible';
+    }
+
+
+    // print the directions menu
+    function showMenu(row, col) {
+      var north, east, south, west;
+      var dirString = "";
+      if (locations[row][col].n == 1) {
+        dirString += "N. go north  ";        
+      }
+      if (locations[row][col].e == 1) {
+        dirString += "E. go east  ";         
+      }
+      if (locations[row][col].s == 1) {
+        dirString += "S. go south  ";        
+      }
+      if (locations[row][col].w == 1) {
+        dirString += "W. go west  ";        
+      }
+      return dirString;
+    }
+
+    // print the stuff at the location
+    function showContents(row, col) {
+      var north, east, south, west;
+      var contString = "";
+      var inter = locations[row][col].inter;
+      if (inter != -1) {
+        if (actions[inter].a != "")
+          contString += "A. " + actions[inter].a + "  ";  
+        if (actions[inter].b != "")
+          contString += "B. " + actions[inter].b + "  "; 
+        if (actions[inter].c != "")
+          contString += "C. " + actions[inter].c + "  "; 
+        if (actions[inter].d != "")
+          contString += "D. " + actions[inter].d + "  ";   
+      }         
+      return contString;
+    }
+
+    function resetMessage() {
+      document.getElementById("actions").innerHTML = "";
+    }
+
+
+    function escapeMount(int) {
+      if (int == 1) {
+        document.getElementById("message1").innerHTML = "The goddess appears.<br> 'You have done very well. I commend you. However, there is one final task. This wall is within your own mind.<br> You cannot return to consciousness without passing through it. It will take great concentration. I hope you can do it.'<br> The goddess disappears.";
+      } else if (int == 2) {
+        document.getElementById("message1").innerHTML = "You focus your attention on the wall. You think you can perceive a path of sorts but it seems almost to shift within a kalidoscope of shapes and colors.<br> You fight to pass through the wall. It takes everything you have. You finally sense yourself break through.";
+      } else if (int == 3) {
+        document.getElementById("message1").innerHTML = "You have broken through the wall! You take a deep breath and blink your eyes. There are clouds above you and you are lying on the ground.<br> Someone is speaking. 'They're alive!'<br>'You're going to be Ok, everything is going to be Ok.'<br> You've returned from the mountain. You get a second chance at life.";
+      }
+    }
+
+    function openMap(version) {
+      vis = document.getElementById("map1").style.visibility;
+      if (version == 1 && vis == 'hidden')
+        document.getElementById("map1").style.visibility = 'visible';
+      else
+        document.getElementById("map1").style.visibility = 'hidden';
+    }
+  </script>
+
+  <!-- Javascript for keyboard input -->
+  <script type="text/javascript" src="keyboard.js"></script>
+  <!-- Javascript for locations -->
+  <script type="text/javascript" src="locations.js"></script>
+  <!-- Javascript for minon fight -->
+	<script type="text/javascript" src="fight.js"></script>
+</body>
+</html>

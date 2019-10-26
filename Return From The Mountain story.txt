@@ -1,11 +1,16 @@
-To Do
+10/12/19 - changes since last update on Kong. or Git: 
+partial map, fix movement during cut-scenes, cut-scene formatting, array for testing details 
+
+
+To Do   
 ------ 
-Fix entering and exiting minon fight. Add next story piece.
-Concentration Wall
-Ending
-Administrative - book, sudoku, name
-Nice Formatting
-Reset -> stage = 1, playerLoc = [5,5]
+Start page
+Improve overall formatting and design
+Add buttons at the bottom that pop up a partial map or a full map
+Administrative has an error
+Change movement to arrow keys or to buttons
+Change interact to numbers or buttons
+Add the Concentration Wall
 
 
 Return from the Mountain

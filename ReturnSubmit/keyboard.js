@@ -16,28 +16,28 @@
 
       // Direction Buttons
       north.press = () => {
-        if (locations[playerLoc[0]][playerLoc[1]].n == 1){
+        if (locations[playerLoc[0]][playerLoc[1]].n == 1 && moveAllowed == true){
           playerLoc[0] -= 1;
           moveKey();
         }
       };
 
       east.press = () => {
-        if (locations[playerLoc[0]][playerLoc[1]].e == 1){
+        if (locations[playerLoc[0]][playerLoc[1]].e == 1 && moveAllowed == true){
           playerLoc[1] += 1;
           moveKey();
         }
       }
 
       south.press = () => {
-        if (locations[playerLoc[0]][playerLoc[1]].s == 1){
+        if (locations[playerLoc[0]][playerLoc[1]].s == 1 && moveAllowed == true){
           playerLoc[0] += 1;
           moveKey();
         }
       }
 
       west.press = () => {
-        if (locations[playerLoc[0]][playerLoc[1]].w == 1){
+        if (locations[playerLoc[0]][playerLoc[1]].w == 1 && moveAllowed == true){
           playerLoc[1] -= 1;
           moveKey();
         }

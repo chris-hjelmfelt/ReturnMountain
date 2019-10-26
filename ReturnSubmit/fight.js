@@ -196,4 +196,6 @@ function playerCaptured() {
   document.getElementById("fightstats").style.visibility = 'hidden';
   document.getElementById("message1").innerHTML = "You were captured";
   window.setTimeout(printLoc, 2000);
+  playerLoc = [8,10];
+  stage = 9;
 }
