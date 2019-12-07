@@ -102,7 +102,7 @@
   {"title":"Underground Fields", "des":"", "n":1, "e":1, "s":1, "w":0, "inter":6},
   {"title":"Underground Fields", "des":"", "n":0, "e":0, "s":1, "w":1, "inter":7},
   {"title":"Death's Fortress", "des":"The pantry - There is very little in here. Apparently Death doesn't host a lot of dinner parties.", "n":0, "e":0, "s":1, "w":0, "inter":8},
-  {"title":"Death's Fortress", "des":"You are in a small empty room", "n":0, "e":0, "s":1, "w":0, "inter":9},
+  {"title":"Death's Fortress", "des":"You are in a small bedroom", "n":0, "e":0, "s":1, "w":0, "inter":9},
   {"title":"Death's Fortress", "des":"There is a broken staircase here", "n":0, "e":0, "s":1, "w":0, "inter":10},
   {"title":"Rocky Wasteland", "des":"The cavern starts to narrow here. The ceiling is only 20 feet or so above and the trail seems to be leading somewhere.", "n":1, "e":0, "s":1, "w":0, "inter":11},
   {"title":"Rock", "des":"this is a mistake", "n":0, "e":0, "s":0, "w":1, "inter":-1},
