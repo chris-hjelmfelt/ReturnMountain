@@ -1,19 +1,22 @@
-10/12/19 - changes since last update on Kong. or Git: 
-partial map, fix movement during cut-scenes, cut-scene formatting, array for testing details 
+Current size used on Kongregate - 1000 x 700  (for some reason index and main don't match up the way I think they should)
+Dev Server use: > npm start
+
+12/7/19 - changes since last update on Kong: 
+fix cutscenes at fight and admin office
+12/7/19 - changes since last update on Git: 
+fix cutscenes at fight, admin, and end. new enemy symbol
 
 
 To Do   
 ------ 
-Start page
-Improve overall formatting and design
-Add buttons at the bottom that pop up a partial map or a full map
-Administrative has an error
-Change movement to arrow keys or to buttons
-Change interact to numbers or buttons
+Fix cutscenes to be accessed from a single function
+add WASD to the fight scene
+Improve overall formatting and design  (especially cutscene formating)
 Add the Concentration Wall
 
 
-Return from the Mountain
+
+Story Pieces
 -----------------------------
 1.
 You awake in the dark, the waters of forgetfulness still damp upon your lips. 
@@ -162,15 +165,17 @@ You enter a maze. The tunnel branches here.
 
 You see a bright light ahead. You have found the way out of Deaths mountain!
 
------------------
 
-5 Roles:
+
+Advanced Features
+-----------------
+Let them choose from one of five roles:
 Lover - ring of love
 Freedom Fighter - power aura
 Parent - candle
 Prince - septure of law
 Scientist - compass
-- each has a different goddess helping them, tools to escape, and storyline
+each role has a different goddess helping them, tools to escape, and storyline
 
 choose male or female 
 choose easy, medium, hard

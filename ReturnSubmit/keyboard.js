@@ -15,6 +15,7 @@
           space = keyboardHelper(32);
           map = keyboardHelper(77); // M
           cont = keyboardHelper(13);  // Enter
+          document.getElementById("playerX").additional = "u";
 
       // Direction Buttons
       north.press = () => {
