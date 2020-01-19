@@ -19,30 +19,50 @@
 
       // Direction Buttons
       north.press = () => {
-        if (locations[playerLoc[0]][playerLoc[1]].n == 1 && moveAllowed == true){
-          playerLoc[0] -= 1;
-          moveKey();
+        if (stage == 14){   // during fight scene this moves the players facing direction
+          document.getElementById("playerX").innerHTML = 	"&uArr;";
+          document.getElementById("playerX").additional = "u";
+        } else {
+          if (locations[playerLoc[0]][playerLoc[1]].n == 1 && moveAllowed == true){
+            playerLoc[0] -= 1;
+            moveKey();
+          }
         }
       };
 
       east.press = () => {
-        if (locations[playerLoc[0]][playerLoc[1]].e == 1 && moveAllowed == true){
-          playerLoc[1] += 1;
-          moveKey();
+        if (stage == 14){
+          document.getElementById("playerX").innerHTML = 	"&rArr;";
+          document.getElementById("playerX").additional = "r";
+        } else {
+          if (locations[playerLoc[0]][playerLoc[1]].e == 1 && moveAllowed == true){
+            playerLoc[1] += 1;
+            moveKey();
+          }
         }
       }
 
       south.press = () => {
-        if (locations[playerLoc[0]][playerLoc[1]].s == 1 && moveAllowed == true){
-          playerLoc[0] += 1;
-          moveKey();
+        if (stage == 14){
+          document.getElementById("playerX").innerHTML = 	"&dArr;";
+          document.getElementById("playerX").additional = "d";
+        } else {
+          if (locations[playerLoc[0]][playerLoc[1]].s == 1 && moveAllowed == true){
+            playerLoc[0] += 1;
+            moveKey();
+          }
         }
       }
 
       west.press = () => {
-        if (locations[playerLoc[0]][playerLoc[1]].w == 1 && moveAllowed == true){
-          playerLoc[1] -= 1;
-          moveKey();
+        if (stage == 14){
+          document.getElementById("playerX").innerHTML = 	"&lArr;";
+          document.getElementById("playerX").additional = "l";
+        } else {
+          if (locations[playerLoc[0]][playerLoc[1]].w == 1 && moveAllowed == true){
+            playerLoc[1] -= 1;
+            moveKey();
+          }
         }
       }
       
@@ -104,7 +124,7 @@
 
       // Arrow Keys - change dir player is facing during fight
       left.press = () => {
-        if (stage == 10){
+        if (stage == 14){
           document.getElementById("playerX").innerHTML = 	"&lArr;";
           document.getElementById("playerX").additional = "l";
         } else {
@@ -118,7 +138,7 @@
       };
 
       up.press = () => {
-        if (stage == 10){
+        if (stage == 14){
           document.getElementById("playerX").innerHTML = 	"&uArr;";
           document.getElementById("playerX").additional = "u";
         } else {
@@ -132,7 +152,7 @@
       };
 
       right.press = () => {
-        if (stage == 10){
+        if (stage == 14){
           document.getElementById("playerX").innerHTML = 	"&rArr;";
           document.getElementById("playerX").additional = "r";
         } else {
@@ -146,7 +166,7 @@
       };
 
       down.press = () => {
-        if (stage == 10){
+        if (stage == 14){
           document.getElementById("playerX").innerHTML = 	"&dArr;";
           document.getElementById("playerX").additional = "d";
         } else {
@@ -171,7 +191,9 @@
 
       // Continue during cut scenes
       cont.press = () => { 
-        myContinue();
+        if (document.getElementById("continue").style.visibility == 'visible'){
+          newScene();
+        }        
       }
   }
   keyboardStart();

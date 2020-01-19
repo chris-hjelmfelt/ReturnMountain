@@ -1,5 +1,6 @@
-var cell = document.getElementById('fighting').getElementsByTagName('td');
+var enemyCell = document.getElementById('fighting').getElementsByTagName('td');
 var enemyArray = [];
+var moveEnemy;
 var timeTick = 0;
 var delayTime = 2;
 var minonsCount = 0;
@@ -7,22 +8,37 @@ var deadMinons = 0;
 var totalMinons = 25;
 var hitPoints = 5;
 var totalhitPoints = 5;
-var attack = true;
+var attack = false;
 var nearU = false, nearL = false, nearR = false, nearD = false;  // player threatened from direction
 var enemySymbol = "&#164;";
 
-for (var i=1; i<16; i++){
-  enemyArray[i] = false;
+function setupFight() {  // this allows it to reset if they fail
+  for (var i=0; i<16; i++){
+    enemyArray[i] = false;
+    console.log(enemyArray[i]);    
+  }
+  for (var j=0; j<81; j++){
+    enemyCell[j].innerHTML = ""; 
+    console.log(enemyCell[j].innerHTML);     
+  }  
+  minonsCount = 0;
+  deadMinons = 0;
+  hitPoints = 5;
+  timeTick = 0;  
+  document.getElementById("playerX").innerHTML = 	"&uArr;";
+  console.log("setup fight done");
 }
+setupFight();
 
-function startFight() {
+function startFight() {  
+  attack = true;
   document.getElementById("fightalert").innerHTML = "Use spacebar to hit!"
   document.getElementById("message1").innerHTML = "";
   document.getElementById("howto").innerHTML = instructTwo;
   document.getElementById("continue").style.visibility = "hidden";
   document.getElementById("minons").innerHTML = "Minons: " + (totalMinons-deadMinons) + "/" + totalMinons;
   document.getElementById("hit").innerHTML = "Hit Points: " + hitPoints + "/" + totalhitPoints;
-  window.setInterval(moveMinons, 1000);
+  moveEnemy = window.setInterval(moveMinons, 1000);
 }
 
 
@@ -39,94 +55,94 @@ function moveMinons() {  // called here in startFight()
     if  (enemyArray[3] == false){  // cell 31 empty
       // closest ones first   (make sure they stay red and large)
       if (enemyArray[2] == true){
-        cell[22].innerHTML = "";
+        enemyCell[22].innerHTML = "";
         enemyArray[2] = false;
-        cell[31].innerHTML = enemySymbol;
+        enemyCell[31].innerHTML = enemySymbol;
         enemyArray[3] = true;
-        cell[31].style.color = "red";
-        cell[31].style.fontSize = "28px";
+        enemyCell[31].style.color = "red";
+        enemyCell[31].style.fontSize = "28px";
       }
       // middle distance ones next
       if (enemyArray[1] == true){
-        cell[13].innerHTML = "";
+        enemyCell[13].innerHTML = "";
         enemyArray[1] = false;
-        cell[22].innerHTML = enemySymbol;
+        enemyCell[22].innerHTML = enemySymbol;
         enemyArray[2] = true;
       }
       // furthest out ones last
       if (enemyArray[0] == true){
-        cell[4].innerHTML = "";
+        enemyCell[4].innerHTML = "";
         enemyArray[0] = false;
-        cell[13].innerHTML = enemySymbol;
+        enemyCell[13].innerHTML = enemySymbol;
         enemyArray[1] = true;
       }
     }
     // Left - Move any existing minons if there is room
     if  (enemyArray[7] == false){  // cell 39 empty
       if (enemyArray[6] == true){
-        cell[38].innerHTML = "";
+        enemyCell[38].innerHTML = "";
         enemyArray[6] = false;
-        cell[39].innerHTML = enemySymbol;
+        enemyCell[39].innerHTML = enemySymbol;
         enemyArray[7] = true;
-        cell[39].style.color = "red";
-        cell[39].style.fontSize = "28px";
+        enemyCell[39].style.color = "red";
+        enemyCell[39].style.fontSize = "28px";
       }
       if (enemyArray[5] == true){
-        cell[37].innerHTML = "";
+        enemyCell[37].innerHTML = "";
         enemyArray[5] = false;
-        cell[38].innerHTML = enemySymbol;
+        enemyCell[38].innerHTML = enemySymbol;
         enemyArray[6] = true;
       }
       if (enemyArray[4] == true){
-        cell[36].innerHTML = "";
+        enemyCell[36].innerHTML = "";
         enemyArray[4] = false;
-        cell[37].innerHTML = enemySymbol;
+        enemyCell[37].innerHTML = enemySymbol;
         enemyArray[5] = true;
       }
     }
     // Right - Move any existing minons if there is room
     if  (enemyArray[8] == false){
       if (enemyArray[9] == true){
-        cell[42].innerHTML = "";
+        enemyCell[42].innerHTML = "";
         enemyArray[9] = false;
-        cell[41].innerHTML = enemySymbol;
+        enemyCell[41].innerHTML = enemySymbol;
         enemyArray[8] = true;
-        cell[41].style.color = "red";
-        cell[41].style.fontSize = "28px";
+        enemyCell[41].style.color = "red";
+        enemyCell[41].style.fontSize = "28px";
       }
       if (enemyArray[10] == true){
-        cell[43].innerHTML = "";
+        enemyCell[43].innerHTML = "";
         enemyArray[10] = false;
-        cell[42].innerHTML = enemySymbol;
+        enemyCell[42].innerHTML = enemySymbol;
         enemyArray[9] = true;
       }
       if (enemyArray[11] == true){
-        cell[44].innerHTML = "";
+        enemyCell[44].innerHTML = "";
         enemyArray[11] = false;
-        cell[43].innerHTML = enemySymbol;
+        enemyCell[43].innerHTML = enemySymbol;
         enemyArray[10] = true;
       }
     }
     // Bottom - Move any existing minons if there is room
     if  (enemyArray[12] == false){
       if (enemyArray[13] == true){
-        cell[58].innerHTML = "";  
+        enemyCell[58].innerHTML = "";  
         enemyArray[13] = false;
-        cell[49].innerHTML = enemySymbol;
+        enemyCell[49].innerHTML = enemySymbol;
         enemyArray[12] = true;
-        cell[49].style.color = "red";
-        cell[49].style.fontSize = "28px";
+        enemyCell[49].style.color = "red";
+        enemyCell[49].style.fontSize = "28px";
       }  
       if (enemyArray[14] == true){
-        cell[67].innerHTML = "";
+        enemyCell[67].innerHTML = "";
         enemyArray[14] = false;
-        cell[58].innerHTML = enemySymbol;
+        enemyCell[58].innerHTML = enemySymbol;
         enemyArray[13] = true;
       }    
       if (enemyArray[15] == true){
-        cell[76].innerHTML = "";
+        enemyCell[76].innerHTML = "";
         enemyArray[15] = false;
-        cell[67].innerHTML = enemySymbol;
+        enemyCell[67].innerHTML = enemySymbol;
         enemyArray[14] = true;
       }
     }
@@ -137,16 +153,16 @@ function moveMinons() {  // called here in startFight()
       minonsCount += 1;
       var placeMinon = Math.floor(Math.random()*4); 
       if (placeMinon == 0){
-        cell[4].innerHTML = enemySymbol;
+        enemyCell[4].innerHTML = enemySymbol;
         enemyArray[0] = true;
       } else if (placeMinon == 1){
-        cell[36].innerHTML = enemySymbol;
+        enemyCell[36].innerHTML = enemySymbol;
         enemyArray[4] = true;
       } else if (placeMinon == 2){
-        cell[44].innerHTML = enemySymbol;
+        enemyCell[44].innerHTML = enemySymbol;
         enemyArray[11] = true;
       } else if (placeMinon == 3){
-        cell[76].innerHTML = enemySymbol;
+        enemyCell[76].innerHTML = enemySymbol;
         enemyArray[15] = true;
       } 
     } 
@@ -158,27 +174,27 @@ function moveMinons() {  // called here in startFight()
 function playerHit() {    // called by keyboard.js when spacebar is pressed
   playerDir = document.getElementById("playerX").additional;
   if (playerDir == "u" & enemyArray[3] == true) {  
-    cell[31].innerHTML = "x";
-    cell[31].style.color = "black";
-    cell[31].style.fontSize = "22px";
+    enemyCell[31].innerHTML = "x";
+    enemyCell[31].style.color = "black";
+    enemyCell[31].style.fontSize = "22px";
     enemyArray[3] = false;
     deadMinons += 1;
   }  else if (playerDir == "l" & enemyArray[7] == true) {
-    cell[39].innerHTML = "x";
-    cell[39].style.color = "black";
-    cell[39].style.fontSize = "22px";
+    enemyCell[39].innerHTML = "x";
+    enemyCell[39].style.color = "black";
+    enemyCell[39].style.fontSize = "22px";
     enemyArray[7] = false;
     deadMinons += 1;
   } else if (playerDir == "r" & enemyArray[8] == true) {
-    cell[41].innerHTML = "x";
-    cell[41].style.color = "black";
-    cell[41].style.fontSize = "22px";
+    enemyCell[41].innerHTML = "x";
+    enemyCell[41].style.color = "black";
+    enemyCell[41].style.fontSize = "22px";
     enemyArray[8] = false;
     deadMinons += 1;
   } else if (playerDir == "d" & enemyArray[12] == true) {
-    cell[49].innerHTML = "x";
-    cell[49].style.color = "black";
-    cell[49].style.fontSize = "22px";
+    enemyCell[49].innerHTML = "x";
+    enemyCell[49].style.color = "black";
+    enemyCell[49].style.fontSize = "22px";
     enemyArray[12] = false;
     deadMinons += 1;
   }
@@ -234,18 +250,22 @@ function hitPlayer(){
 
 function playerWin() {
   attack = false;
+  clearInterval(moveEnemy);
   document.getElementById("fighting").style.visibility = 'hidden';
   document.getElementById("fightstats").style.visibility = 'hidden';
-  cutScene(storyTen);  
+  newScene();
 }
 
 
 function playerCaptured() {
   attack = false;
+  clearInterval(moveEnemy);
+  setupFight();
   document.getElementById("fighting").style.visibility = 'hidden';
   document.getElementById("fightstats").style.visibility = 'hidden';
   document.getElementById("message1").innerHTML = "You were captured";
-  window.setTimeout(printLoc, 2000);
+  document.getElementById("collect").style.visibility = 'hidden';
   playerLoc = [8,10];
-  stage = 9;
+  stage = 12;  
+  window.setTimeout(playerMovementStage, 2000);   
 }

@@ -1,17 +1,16 @@
 Current size used on Kongregate - 1000 x 700  (for some reason index and main don't match up the way I think they should)
 Dev Server use: > npm start
 
-12/7/19 - changes since last update on Kong: 
-fix cutscenes at fight and admin office
-12/7/19 - changes since last update on Git: 
-fix cutscenes at fight, admin, and end. new enemy symbol
+12/7/2019 - changes since last update on Kong: 
+fix cutscenes at fight, admin, and end, single function for cutscenes , fight reset
+single function to keep track of cutscenes
+01/08/2020 - changes since last update on Git: 
+single function for cutscenes, fight reset
 
 
 To Do   
 ------ 
-Fix cutscenes to be accessed from a single function
-add WASD to the fight scene
-Improve overall formatting and design  (especially cutscene formating)
+Improve overall design
 Add the Concentration Wall
 
 
@@ -196,3 +195,7 @@ Concentration Wall - alpha numeric text scrolls by (faster on hard),
 	click arrows in correct order to break through
 	compass helps quide the way
 
+
+Troubleshooting
+-- Minons weren't being removed from fight board after capture
+  -- I hadn't cleared the interval calling moveMinons() and I set attack = true; in setupFight() instead of startFight()
