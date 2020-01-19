@@ -39,9 +39,11 @@ h1, h2 {
   margin: auto;
 }
 
-#instructions {
-  color: black;
-  font-size: 16px;
+#mainMessages {
+  position: fixed;
+  width: 60%;
+  top: 100px;
+  left: 10px;
 }
 
 #storyPart {
@@ -107,23 +109,28 @@ h1, h2 {
   width: 450px;
   height: 450px;
   top: 90px;
-  left: 20px;  
+  left: 10px;  
 }
+
 #fightstats {
-  position: fixed;
+  position: absolute;
   z-index: 1;
-  width: 450px;
-  height: 450px;
-  top: 115px;
-  left: 480px; 
+  width: 100%;
+  height: 200px;
+  top: 0;
   font-size: 26px;
+  background: white;
 }
 #minons {
+  font-size: 20px;
+}
+#hit {
   font-size: 20px;
 }
 #howto {
   font-size: 16px;
 }
+
 
 table {
   width: 100%;
@@ -156,13 +163,39 @@ td {
 #cutawayBox {  
   position: fixed;
   z-index: 1;
-  width: 98%;
+  width: 60%;
   height: 260px;
   top: 90px;
   left: 5px; 
   padding: 5px;
   border: 2px solid black;
   background: azure;  
+}
+
+#helperInfo {  
+  position: fixed;
+  z-index: 1;
+  width: 30%;
+  height: 600px;
+  top: 90px;
+  right: 0px; 
+  padding: 10px;
+  border-left: 2px solid black;
+}
+
+#instructions {
+  color: black;
+  font-size: 20px;
+}
+
+#openmap1 {
+  border: 1px solid black;
+  position: relative;
+}
+
+#map1 {
+  border: 2px solid black;
+  position: relative;
 }
 
 #end {

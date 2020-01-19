@@ -69,15 +69,21 @@
       // action options
       optA.press = () => {      
         let inter = locations[playerLoc[0]][playerLoc[1]].inter;
-        if (inter != -1)  {
-          document.getElementById("actions").innerHTML = actions[inter].responseA;
-          window.setTimeout(resetMessage, 1000);
-          if (actions[inter].responseA == "You dig for gems" && stage >= 7) {
-            gems += 1;
-            document.getElementById("collect").innerHTML = "Gems: " + gems + "/100"; 
-            if (gems >= 5){
+        if (inter != -1)  {  
+          if (actions[inter].responseA == "You wonder what they mine here" && stage >= 10) { 
+            actions[inter].responseA = "You mine some gems"     
+          }           
+          if (actions[inter].responseA == "You mine some gems" && stage >= 10) {
+            if (gems >= 5){  // No more gems to mine
               actions[inter].responseA = "It's bare rock now";
-            }
+            } else if (gemDebounce == false) { 
+              gemDebounce = true;  // currently mining
+              document.getElementById("actions").innerHTML = actions[inter].responseA;
+              window.setTimeout(getGem, 2000);    
+            }            
+          } else {
+            document.getElementById("actions").innerHTML = actions[inter].responseA;
+            window.setTimeout(resetMessage, 1000);
           }
           if ( actions[inter].responseA == "You find a bunch of food"  && stage >= 6) {
             food += 80;

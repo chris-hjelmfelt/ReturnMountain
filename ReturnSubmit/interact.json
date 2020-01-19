@@ -60,7 +60,7 @@
     "c":"", "responseC":"", "d":"", "responseD":""},
   {"a":"", "responseA":"", "b":"", "responseB":"", 
     "c":"", "responseC":"", "d":"", "responseD":""},
-  {"a":"A mining area", "responseA":"You dig for gems", "b":"", "responseB":"", 
+  {"a":"A mining area", "responseA":"You wonder what they mine here", "b":"", "responseB":"", 
     "c":"", "responseC":"", "d":"", "responseD":""},
   {"a":"Two of Death's minons", "responseA":"Give us 5 gems", "b":"", "responseB":"", 
     "c":"", "responseC":"", "d":"", "responseD":""},  

@@ -2,16 +2,17 @@ Current size used on Kongregate - 1000 x 700  (for some reason index and main do
 Dev Server use: > npm start
 
 12/7/2019 - changes since last update on Kong: 
-fix cutscenes at fight, admin, and end, single function for cutscenes , fight reset
+fix cutscenes at fight, admin, and end, single function for cutscenes, fight reset, design changes
 single function to keep track of cutscenes
-01/08/2020 - changes since last update on Git: 
-single function for cutscenes, fight reset
+01/18/2020 - changes since last update on Git: 
+main design changes, mining improvements
 
 
 To Do   
 ------ 
 Improve overall design
 Add the Concentration Wall
+Add BookOfNames game piece
 
 
 

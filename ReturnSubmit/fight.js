@@ -14,28 +14,27 @@ var enemySymbol = "&#164;";
 
 function setupFight() {  // this allows it to reset if they fail
   for (var i=0; i<16; i++){
-    enemyArray[i] = false;
-    console.log(enemyArray[i]);    
+    enemyArray[i] = false; 
   }
   for (var j=0; j<81; j++){
-    enemyCell[j].innerHTML = ""; 
-    console.log(enemyCell[j].innerHTML);     
+    enemyCell[j].innerHTML = "";     
   }  
   minonsCount = 0;
   deadMinons = 0;
   hitPoints = 5;
   timeTick = 0;  
   document.getElementById("playerX").innerHTML = 	"&uArr;";
-  console.log("setup fight done");
 }
 setupFight();
 
 function startFight() {  
-  attack = true;
+  attack = true;    
+  document.getElementById("cutawayBox").style.visibility = 'hidden';
+  document.getElementById("continue").style.visibility = 'hidden'; 
+  document.getElementById("fighting").style.visibility = 'visible';
+  document.getElementById("fightstats").style.visibility = 'visible';
   document.getElementById("fightalert").innerHTML = "Use spacebar to hit!"
-  document.getElementById("message1").innerHTML = "";
   document.getElementById("howto").innerHTML = instructTwo;
-  document.getElementById("continue").style.visibility = "hidden";
   document.getElementById("minons").innerHTML = "Minons: " + (totalMinons-deadMinons) + "/" + totalMinons;
   document.getElementById("hit").innerHTML = "Hit Points: " + hitPoints + "/" + totalhitPoints;
   moveEnemy = window.setInterval(moveMinons, 1000);
