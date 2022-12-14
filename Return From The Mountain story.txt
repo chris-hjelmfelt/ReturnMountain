@@ -13,7 +13,7 @@ To Do
 Improve overall design
 Add the Concentration Wall
 Add BookOfNames game piece
-
+Press C to continue
 
 
 Story Pieces

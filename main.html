@@ -8,50 +8,53 @@
   <title>Return from the Mountain</title>
 </head>
 <body>
-  <h1>Return from the Mountain</h1>  
-  <hr>
+  <div id="page">
+    <h1>Return from the Mountain</h1>  
+
+    <div id="storyBox">
+      <span id="storyPart"></span> <br>
+      <p id="end">THE END</p>
+      <div id="mainMessages">
+        <p id="message1"></p>  
+        <p id="message2"></p>
+        <p id="message3"></p>  
+        <p id="menu"></p> 
+        <p id="contents"></p>   
+        <p id="actions"></p> 
+        <p id="collect"></p> 
+      </div>
+      <button id="continue" onclick="newScene(1)">Continue</button>
+      
+    </div> 
+
+    <div id="fighting">  
+      <span id="fightalert">Ready!</span>
+      <table>
+        <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+        <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+        <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+        <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+        <tr> <td></td><td></td><td></td><td></td><td id="playerX" additional="u">&uArr;</td><td></td><td></td><td></td><td></td> </tr>
+        <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+        <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+        <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+        <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
+      </table>
+    </div>
+   
+  </div>
+
   <div id="helperInfo">        
     <p id="instructions"></p>    
     &nbsp;<br>
     <button id="openmap1" onclick="openMap(1)">Partial Map (M)</button><br>   
     &nbsp;<br> 
-    <img id="map1" src="partial_map.jpg" width="300">
+    <img id="map1" src="images/partial_map.jpg" width="300">
     <div id="fightstats">
       <span id="hit">Hit Points:</span><br>
       <span id="minons">Minons:</span><br>
       <span id="howto"></span>
     </div>
-  </div>
-
-  <div id="cutawayBox">
-    <span id="storyPart"></span>    <br>
-    <p id="end">THE END</p>
-    <button id="continue" onclick="newScene()">Continue</button>
-  </div>    
-
-  <div id="mainMessages">
-    <p id="message1"></p>  
-    <p id="message2"></p>
-    <p id="message3"></p>  
-    <p id="menu"></p> 
-    <p id="contents"></p>   
-    <p id="actions"></p> 
-    <p id="collect"></p> 
-  </div>
-
-  <div id="fighting">  
-    <span id="fightalert">Ready!</span>
-    <table>
-      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
-      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
-      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
-      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
-      <tr> <td></td><td></td><td></td><td></td><td id="playerX" additional="u">&uArr;</td><td></td><td></td><td></td><td></td> </tr>
-      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
-      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
-      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
-      <tr> <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td> </tr>
-    </table>
   </div>
   
   
@@ -75,8 +78,9 @@
     let moveAllowed = false; 
     let food = 0;
     let gems = 0;
-    let instructOne = "Press arrow keys or WASD to move <br>Press numbers to interact<br>Press enter to continue.";
-    let instructTwo = "Press arrow keys or WASD to turn. Press Spacebar to hit.";
+    let instructOne = "Press arrow keys or WASD to move <br>Press numbers to interact <br>Press enter to continue";
+    let instructTwo = "Press arrow keys or WASD to turn <br>Press Spacebar to hit";
+    let instructStart = "Press arrow keys or WASD to move <br>Press numbers to interact";
 
     // Story pieces for cutaway scenes
     let storyOne = "You awake in the dark, the waters of forgetfulness still damp upon your lips.<br> You have a sense of having lost something. You were on your way somewhere important...";
@@ -105,8 +109,8 @@
     // Do this at the start of game
     function setup() {
       document.getElementById("storyPart").innerHTML = storyOne;     
-      document.getElementById("instructions").innerHTML = instructOne;  
-      document.getElementById("instructions").style.visibility = 'hidden'; 
+      document.getElementById("instructions").innerHTML = instructStart;  
+      //document.getElementById("instructions").style.visibility = 'hidden'; 
       document.getElementById("message2").style.visibility = 'visible';
       document.getElementById("menu").style.visibility = 'visible';
       document.getElementById("contents").style.visibility = 'visible';
@@ -114,9 +118,10 @@
       document.getElementById("fighting").style.visibility = 'hidden';
       document.getElementById("fightstats").style.visibility = 'hidden';
       document.getElementById("map1").style.visibility = 'hidden';     
-      document.getElementById("cutawayBox").style.visibility = 'visible';
+      document.getElementById("storyBox").style.visibility = 'visible';
       document.getElementById("openmap1").style.visibility = 'hidden';  
       document.getElementById("end").style.visibility = 'hidden';  
+      
       
       // for testing:
       if (testing == true) {
@@ -125,7 +130,7 @@
         window.setTimeout(moveKey, 1000);                 
         window.setTimeout(printLoc, 1000);    
         moveAllowed = true;       
-        document.getElementById("cutawayBox").style.visibility = 'hidden';
+        document.getElementById("storyBox").style.visibility = 'hidden';
       }
     }  
     
@@ -134,19 +139,19 @@
       row = playerLoc[0];
       col = playerLoc[1];
       if (row == 9 & col == 5 & stage == 4) {  // encounter the souls of the dead for the first time
-        newScene();
+        newScene(1);
       } else if (row == 9 & col == 5 & stage == 6 & food >= 100) { // feed the souls of the dead
-        newScene();
+        newScene(1);
       } else if (row == 10 & col == 7 & stage == 8) {  // encounter the two minons for the first time
-        newScene();
+        newScene(1);
       } else if (row == 10 & col == 7 & stage == 10 & gems >= 5) {  // give minons gems
-        newScene();
+        newScene(1);
       } else if (row == 7 & col == 10 & stage == 12) {  // encounter minon fight
-        newScene();
+        newScene(1);
       } else if (row == 5 & col == 8 & stage == 16) {  // encounter book of names        
-        newScene();
+        newScene(1);
       } else if (row >= 16) { // escape the maze
-        newScene();  
+        newScene(1);  
       } else {
         printLoc();
       }
@@ -159,6 +164,12 @@
       document.getElementById("message1").innerHTML = locations[row][col].title;
       if (locations[row][col].title != "In the Maze") {
         document.getElementById("message2").innerHTML = locations[row][col].des;
+      }
+      else if (row == 3 && col == 8) {
+        document.getElementById("message2").innerHTML = locations[row][col].des;
+      }
+      else {
+        document.getElementById("message2").innerHTML = ''
       }
       document.getElementById("menu").innerHTML = showMenu(row,col);
       document.getElementById("contents").innerHTML = showContents(row,col);
@@ -218,12 +229,12 @@
   </script> 
 
   <!-- Javascript for keyboard input -->
-  <script type="text/javascript" src="keyboard.js"></script>
+  <script type="text/javascript" src="js/keyboard.js"></script>
   <!-- Javascript for locations -->
-  <script type="text/javascript" src="locations.js"></script>
+  <script type="text/javascript" src="js/locations.js"></script>
   <!-- Javascript that determines what happens at each stage of the game -->
-	<script type="text/javascript" src="stages.js"></script> 
+	<script type="text/javascript" src="js/stages.js"></script> 
   <!-- Javascript for minon fight -->
-	<script type="text/javascript" src="fight.js"></script>
+	<script type="text/javascript" src="js/fight.js"></script>
 </body>
 </html>

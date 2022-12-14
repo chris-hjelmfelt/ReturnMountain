@@ -1,8 +1,8 @@
     // User presses the continue button     
-    function newScene() {          
+    function newScene(add) {          
       if (continueDebounce == false) {  // prevent double click on continue button
         continueDebounce = true;
-        stage += 1;
+        stage += add;
         if (stage == 1) {   // appear in deaths realm
           cutSceneStage(storyTwo);
         } else if (stage == 2) { 
@@ -19,7 +19,7 @@
           playerMovementStage();
         } else if (stage == 7) {  // feed the souls of the dead
           cutSceneStage(storySix);
-          document.getElementById("collect").style.visibility = 'hidden';
+          document.getElementById("collect").style.visibility = 'collapse';
           actions[locations[9][5].inter].responseA = "They pay you no attention"
           locations[row][col].s = 1;
         } else if (stage == 8) { 
@@ -32,7 +32,7 @@
           playerMovementStage();
         } else if (stage == 11) {  // give minons gems
           cutSceneStage(storyEight);
-          document.getElementById("collect").style.visibility = 'hidden';
+          document.getElementById("collect").style.visibility = 'collapse';
           actions[locations[10][7].inter].responseA = "You may pass"
           locations[row][col].e = 1;
         } else if (stage == 12) {
@@ -64,7 +64,7 @@
           cutSceneStage(storySeventeen);
         } else if (stage == 25) {
           cutSceneStage(storyEighteen);
-          document.getElementById("continue").style.visibility = 'hidden'; 
+          document.getElementById("continue").style.visibility = 'collapse'; 
           document.getElementById("end").style.visibility = 'visible';
         } 
         continueDebounce = false;
@@ -72,15 +72,16 @@
     }        
 
     // Conversations etc.
-    function cutSceneStage(p) {
-      document.getElementById("storyPart").innerHTML = p;
+    function cutSceneStage(part) {
+      document.getElementById("storyPart").innerHTML = part;
       document.getElementById("message2").innerHTML = "";
       document.getElementById("menu").innerHTML = ""; 
       document.getElementById("contents").innerHTML = "";
-      document.getElementById("instructions").style.visibility = 'hidden'; 
-      document.getElementById("openmap1").style.visibility = 'hidden'; 
-      document.getElementById("cutawayBox").style.visibility = 'visible';
-      document.getElementById("continue").style.visibility = 'visible';      
+      console.log(part)
+      //document.getElementById("instructions").style.visibility = 'collapse'; 
+      document.getElementById("openmap1").style.visibility = 'collapse';
+      document.getElementById("storyPart").style.visibility = 'visible';    
+      document.getElementById("continue").style.visibility = 'visible'; 
       moveAllowed = false;
     }
 
@@ -88,8 +89,9 @@
     function playerMovementStage() {
       document.getElementById("instructions").style.visibility = 'visible'; 
       document.getElementById("openmap1").style.visibility = 'visible';  
-      document.getElementById("cutawayBox").style.visibility = 'hidden';
-      document.getElementById("continue").style.visibility = 'hidden';       
+      document.getElementById("storyPart").style.visibility = 'collapse';  
+      document.getElementById("storyPart").innerHTML = '';             
+      document.getElementById("continue").style.visibility = 'collapse';   
       moveAllowed = true;
       printLoc();
     }   
@@ -100,3 +102,6 @@
       document.getElementById("actions").innerHTML = "";
       gemDebounce = false; 
     }
+
+    // testing fight
+    setTimeout(function(){playerLoc[0]= 14; playerLoc[1]= 15; newScene(20)}, 1000); 

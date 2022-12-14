@@ -29,8 +29,9 @@ setupFight();
 
 function startFight() {  
   attack = true;    
-  document.getElementById("cutawayBox").style.visibility = 'hidden';
-  document.getElementById("continue").style.visibility = 'hidden'; 
+  console.log('fight')
+  document.getElementById("storyBox").style.visibility = 'collapse';
+  document.getElementById("continue").style.visibility = 'collapse'; 
   document.getElementById("fighting").style.visibility = 'visible';
   document.getElementById("fightstats").style.visibility = 'visible';
   document.getElementById("fightalert").innerHTML = "Use spacebar to hit!"
@@ -250,9 +251,10 @@ function hitPlayer(){
 function playerWin() {
   attack = false;
   clearInterval(moveEnemy);
-  document.getElementById("fighting").style.visibility = 'hidden';
-  document.getElementById("fightstats").style.visibility = 'hidden';
-  newScene();
+  document.getElementById("fighting").style.display = 'none';
+  document.getElementById("fightstats").style.display = 'none';  
+  document.getElementById("storyBox").style.visibility = 'visible';  
+  newScene(1);
 }
 
 
@@ -260,8 +262,9 @@ function playerCaptured() {
   attack = false;
   clearInterval(moveEnemy);
   setupFight();
-  document.getElementById("fighting").style.visibility = 'hidden';
-  document.getElementById("fightstats").style.visibility = 'hidden';
+  document.getElementById("fighting").style.visibility = 'collapse';
+  document.getElementById("fightstats").style.visibility = 'collapse';
+  document.getElementById("storyBox").style.visibility = 'visible'; 
   document.getElementById("message1").innerHTML = "You were captured";
   document.getElementById("collect").style.visibility = 'hidden';
   playerLoc = [8,10];

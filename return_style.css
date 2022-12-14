@@ -1,11 +1,13 @@
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Courier New", monospace;
   background: white;
   color: black;
 }
 
-h1, h2 {
+h1 {
   color: forestgreen;
+  margin-top: 0px;
+  text-align: center;
 }
 
 * {
@@ -16,6 +18,7 @@ h1, h2 {
   position: fixed;
   z-index: 1;
   width: 98%;
+  max-width: 1200px;
   height: 600px;
   top: 10px;
   left: 10px; 
@@ -23,11 +26,6 @@ h1, h2 {
   border: 3px solid black;
   background: cornflowerblue;   
   text-align: center;
-}
-
-#maintitle {
-  color: black;
-  font-size: 40px;
 }
 
 #startbutton {
@@ -39,56 +37,41 @@ h1, h2 {
   margin: auto;
 }
 
-#mainMessages {
-  position: fixed;
-  width: 60%;
-  top: 100px;
-  left: 10px;
+#page {
+  width: 98%;
+  max-width: 1200px;
+  height: 600px;
+  border: 3px solid black;
+  overflow: auto;
+  padding: 20px;
 }
 
-#storyPart {
-  color: darkgreen;
+#storyBox {  
+  padding: 20px;
+  height: 85%;
+  border: 2px solid black;
+  background: black; 
+  color: white;   
   font-size: 20px;
-}
-
-#message1 {
-  color: darkgreen;
-  font-size: 20px;
-}
-
-#message2 {
-  color: darkgreen;
-  font-size: 20px;
-}
-#message3 {
-  color: black;
-  font-size: 18px;
-}
-
-#menu {
-  color: rgb(167, 4, 207);
-  font-size: 18px;
-}
-
-#contents {
-  color: rgb(167, 4, 207);
-  font-size: 18px;
+  line-height: 1.2em;
 }
 
 #continue {
   border: 1px solid black;
-  position: fixed;
-  top: 325px;
-  left: 15px;
+  margin-top: 20px;
 }
 
-#actions {
-  color: black;
+
+#contents {
+  color: rgb(224, 118, 251);
   font-size: 18px;
 }
-
+#actions {
+  color: rgb(187, 210, 213);
+  font-size: 18px;
+}
 #collect {
-  color: blue;
+  color: rgb(170, 170, 250);
   font-size: 20px;
 }
 
@@ -160,32 +143,15 @@ td {
   font-size: 36px;
 }
 
-#cutawayBox {  
-  position: fixed;
-  z-index: 1;
-  width: 60%;
-  height: 260px;
-  top: 90px;
-  left: 5px; 
-  padding: 5px;
-  border: 2px solid black;
-  background: azure;  
-}
-
-#helperInfo {  
-  position: fixed;
-  z-index: 1;
-  width: 30%;
-  height: 600px;
-  top: 90px;
-  right: 0px; 
+#helperInfo { 
+  width: 1200px;
   padding: 10px;
-  border-left: 2px solid black;
 }
 
 #instructions {
   color: black;
   font-size: 20px;
+  padding-left: 20px;
 }
 
 #openmap1 {
@@ -200,8 +166,6 @@ td {
 
 #end {
   color: darkgreen;
-  font-size: 20px;
-  position: fixed;
-  top: 300px;
-  left: 15px;
+  font-size: 24px;
+  visibility: collapse;
 }
