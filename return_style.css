@@ -55,12 +55,10 @@ h1 {
   font-size: 20px;
   line-height: 1.2em;
 }
-
-#continue {
-  border: 1px solid black;
+#input {
+  display: inline-block;
   margin-top: 20px;
 }
-
 
 #contents {
   color: rgb(224, 118, 251);

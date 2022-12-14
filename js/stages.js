@@ -1,7 +1,5 @@
     // User presses the continue button     
     function newScene(add) {          
-      if (continueDebounce == false) {  // prevent double click on continue button
-        continueDebounce = true;
         stage += add;
         if (stage == 1) {   // appear in deaths realm
           cutSceneStage(storyTwo);
@@ -64,34 +62,29 @@
           cutSceneStage(storySeventeen);
         } else if (stage == 25) {
           cutSceneStage(storyEighteen);
-          document.getElementById("continue").style.visibility = 'collapse'; 
           document.getElementById("end").style.visibility = 'visible';
-        } 
-        continueDebounce = false;
-      }
+        }
     }        
 
     // Conversations etc.
     function cutSceneStage(part) {
+      document.getElementById("input").innerHTML = '&#62;';
       document.getElementById("storyPart").innerHTML = part;
       document.getElementById("message2").innerHTML = "";
       document.getElementById("menu").innerHTML = ""; 
       document.getElementById("contents").innerHTML = "";
-      console.log(part)
-      //document.getElementById("instructions").style.visibility = 'collapse'; 
       document.getElementById("openmap1").style.visibility = 'collapse';
       document.getElementById("storyPart").style.visibility = 'visible';    
-      document.getElementById("continue").style.visibility = 'visible'; 
+      switchScene = true;
       moveAllowed = false;
     }
 
     // Show location information and allow player to move around
     function playerMovementStage() {
-      document.getElementById("instructions").style.visibility = 'visible'; 
       document.getElementById("openmap1").style.visibility = 'visible';  
       document.getElementById("storyPart").style.visibility = 'collapse';  
-      document.getElementById("storyPart").innerHTML = '';             
-      document.getElementById("continue").style.visibility = 'collapse';   
+      document.getElementById("storyPart").innerHTML = '';   
+      switchScene = false;          
       moveAllowed = true;
       printLoc();
     }   

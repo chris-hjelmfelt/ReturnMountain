@@ -1,21 +1,28 @@
   function keyboardStart(){
 			//Capture the keyboard input
-      let left = keyboardHelper(37),
+      let cont1 = keyboardHelper(67);  // c
+          left = keyboardHelper(37),
           up = keyboardHelper(38),
           right = keyboardHelper(39),
           down = keyboardHelper(40),
-          north = keyboardHelper(87), // W
-          east = keyboardHelper(68), // D
+          north = keyboardHelper(78), // N
+          east = keyboardHelper(69), // E
           south = keyboardHelper(83), // S
-          west = keyboardHelper(65), // A
+          west = keyboardHelper(87), // W
           optA = keyboardHelper(49), // 1
           optB = keyboardHelper(50), // 2
           optC = keyboardHelper(51), // 3
           optD = keyboardHelper(52); // 4
           space = keyboardHelper(32);
-          map = keyboardHelper(77); // M
-          cont = keyboardHelper(13);  // Enter
           document.getElementById("playerX").additional = "u";
+
+      // Continue 
+      cont1.press = () => { 
+        if (switchScene == true){
+          document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' c'  
+          setTimeout(function(){newScene(1)}, 1000);
+        }        
+      }
 
       // Direction Buttons
       north.press = () => {
@@ -23,9 +30,10 @@
           document.getElementById("playerX").innerHTML = 	"&uArr;";
           document.getElementById("playerX").additional = "u";
         } else {
+          document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' n'  
           if (locations[playerLoc[0]][playerLoc[1]].n == 1 && moveAllowed == true){
             playerLoc[0] -= 1;
-            moveKey();
+            setTimeout(function(){moveKey()}, 1000);
           }
         }
       };
@@ -35,9 +43,10 @@
           document.getElementById("playerX").innerHTML = 	"&rArr;";
           document.getElementById("playerX").additional = "r";
         } else {
+          document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' e' 
           if (locations[playerLoc[0]][playerLoc[1]].e == 1 && moveAllowed == true){
-            playerLoc[1] += 1;
-            moveKey();
+            playerLoc[1] += 1;            
+            setTimeout(function(){moveKey()}, 1000);
           }
         }
       }
@@ -47,9 +56,10 @@
           document.getElementById("playerX").innerHTML = 	"&dArr;";
           document.getElementById("playerX").additional = "d";
         } else {
+          document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' s' 
           if (locations[playerLoc[0]][playerLoc[1]].s == 1 && moveAllowed == true){
             playerLoc[0] += 1;
-            moveKey();
+            setTimeout(function(){moveKey()}, 1000);
           }
         }
       }
@@ -59,9 +69,10 @@
           document.getElementById("playerX").innerHTML = 	"&lArr;";
           document.getElementById("playerX").additional = "l";
         } else {
+          document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' w' 
           if (locations[playerLoc[0]][playerLoc[1]].w == 1 && moveAllowed == true){
             playerLoc[1] -= 1;
-            moveKey();
+            setTimeout(function(){moveKey()}, 1000);
           }
         }
       }
@@ -69,6 +80,7 @@
       // action options
       optA.press = () => {      
         let inter = locations[playerLoc[0]][playerLoc[1]].inter;
+        document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' 1' 
         if (inter != -1)  {  
           if (actions[inter].responseA == "You wonder what they mine here" && stage >= 10) { 
             actions[inter].responseA = "You mine some gems"     
@@ -83,7 +95,7 @@
             }            
           } else {
             document.getElementById("actions").innerHTML = actions[inter].responseA;
-            window.setTimeout(resetMessage, 1000);
+            window.setTimeout(resetMessage, 2000);
           }
           if ( actions[inter].responseA == "You find a bunch of food"  && stage >= 6) {
             food += 80;
@@ -95,6 +107,7 @@
 
       optB.press = () => {      
         let inter = locations[playerLoc[0]][playerLoc[1]].inter;
+        document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' 2' 
         if (inter != -1)  {
           document.getElementById("actions").innerHTML = actions[inter].responseB;
           window.setTimeout(resetMessage, 1000);
@@ -108,6 +121,7 @@
       
       optC.press = () => {      
         let inter = locations[playerLoc[0]][playerLoc[1]].inter;
+        document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' 3' 
         if (inter != -1)  {
           document.getElementById("actions").innerHTML = actions[inter].responseC;
           window.setTimeout(resetMessage, 1000);
@@ -120,6 +134,7 @@
       }
 
       optD.press = () => {  
+        document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' 4' 
         let inter = locations[playerLoc[0]][playerLoc[1]].inter;
         if (inter != -1)  {
           document.getElementById("actions").innerHTML = actions[inter].responseD;
@@ -133,12 +148,7 @@
         if (stage == 14){
           document.getElementById("playerX").innerHTML = 	"&lArr;";
           document.getElementById("playerX").additional = "l";
-        } else {
-          if (locations[playerLoc[0]][playerLoc[1]].w == 1 && moveAllowed == true){
-            playerLoc[1] -= 1;
-            moveKey();
-          }
-        }
+        } 
       };      
       left.release = () => {
       };
@@ -147,12 +157,7 @@
         if (stage == 14){
           document.getElementById("playerX").innerHTML = 	"&uArr;";
           document.getElementById("playerX").additional = "u";
-        } else {
-          if (locations[playerLoc[0]][playerLoc[1]].n == 1 && moveAllowed == true){
-            playerLoc[0] -= 1;
-            moveKey();
-          }
-        }
+        } 
       };
       up.release = () => {
       };
@@ -161,12 +166,7 @@
         if (stage == 14){
           document.getElementById("playerX").innerHTML = 	"&rArr;";
           document.getElementById("playerX").additional = "r";
-        } else {
-          if (locations[playerLoc[0]][playerLoc[1]].e == 1 && moveAllowed == true){
-            playerLoc[1] += 1;
-            moveKey();
-          }
-        }
+        } 
       };
       right.release = () => {
       };
@@ -175,12 +175,7 @@
         if (stage == 14){
           document.getElementById("playerX").innerHTML = 	"&dArr;";
           document.getElementById("playerX").additional = "d";
-        } else {
-          if (locations[playerLoc[0]][playerLoc[1]].s == 1 && moveAllowed == true){
-            playerLoc[0] += 1;
-            moveKey();
-          }
-        }
+        } 
       };
       down.release = () => {
       };
@@ -190,17 +185,6 @@
         playerHit();
       }
 
-      // Open map
-      map.press = () => { 
-        openMap(1);
-      }
-
-      // Continue during cut scenes
-      cont.press = () => { 
-        if (document.getElementById("continue").style.visibility == 'visible'){
-          newScene();
-        }        
-      }
   }
   keyboardStart();
   

@@ -23,8 +23,7 @@
         <p id="actions"></p> 
         <p id="collect"></p> 
       </div>
-      <button id="continue" onclick="newScene(1)">Continue</button>
-      
+      <span id="input">&#62;</span>
     </div> 
 
     <div id="fighting">  
@@ -62,6 +61,7 @@
 
   <script type="text/javascript"> 
     // Variables
+    var switchScene = true
     let startPos = 1;
     let start = [];     
     start[1] = {title:"startLoc", row:5, col:5, stage:0, test:false};
@@ -73,14 +73,12 @@
     let stage = start[startPos].stage;
     let playerLoc = [start[startPos].row, start[startPos].col];  
     let testing = start[startPos].test;
-    let continueDebounce = false;  // prevent double click on continue button 
     let gemDebounce = false; // prevent mining when already mining
     let moveAllowed = false; 
     let food = 0;
     let gems = 0;
-    let instructOne = "Press arrow keys or WASD to move <br>Press numbers to interact <br>Press enter to continue";
+    let instructOne = "Press c to continue <br>Press keys n,e,s,w to move <br>Press numbers 1-4 to interact";
     let instructTwo = "Press arrow keys or WASD to turn <br>Press Spacebar to hit";
-    let instructStart = "Press arrow keys or WASD to move <br>Press numbers to interact";
 
     // Story pieces for cutaway scenes
     let storyOne = "You awake in the dark, the waters of forgetfulness still damp upon your lips.<br> You have a sense of having lost something. You were on your way somewhere important...";
@@ -108,8 +106,8 @@
 
     // Do this at the start of game
     function setup() {
-      document.getElementById("storyPart").innerHTML = storyOne;     
-      document.getElementById("instructions").innerHTML = instructStart;  
+      document.getElementById("storyPart").innerHTML = storyOne;   
+      document.getElementById("instructions").innerHTML = instructOne;  
       //document.getElementById("instructions").style.visibility = 'hidden'; 
       document.getElementById("message2").style.visibility = 'visible';
       document.getElementById("menu").style.visibility = 'visible';
@@ -160,7 +158,8 @@
     // print location info
     function printLoc() {
       row = playerLoc[0];
-      col = playerLoc[1];
+      col = playerLoc[1]; 
+      document.getElementById("input").innerHTML = '&#62;';     
       document.getElementById("message1").innerHTML = locations[row][col].title;
       if (locations[row][col].title != "In the Maze") {
         document.getElementById("message2").innerHTML = locations[row][col].des;

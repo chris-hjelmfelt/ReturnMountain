@@ -31,7 +31,6 @@ function startFight() {
   attack = true;    
   console.log('fight')
   document.getElementById("storyBox").style.visibility = 'collapse';
-  document.getElementById("continue").style.visibility = 'collapse'; 
   document.getElementById("fighting").style.visibility = 'visible';
   document.getElementById("fightstats").style.visibility = 'visible';
   document.getElementById("fightalert").innerHTML = "Use spacebar to hit!"
