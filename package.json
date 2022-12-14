@@ -1,7 +1,7 @@
 {
   "name": "return",
   "version": "1.0.0",
-  "description": "Game Return from the Mountain",
+  "description": "text based RPG",
   "main": "index.html",
   "scripts": {
     "lite": "lite-server --port 3000",

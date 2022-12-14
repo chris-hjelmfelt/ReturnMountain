@@ -104,4 +104,4 @@
     }
 
     // testing fight
-    setTimeout(function(){playerLoc[0]= 14; playerLoc[1]= 15; newScene(20)}, 1000); 
+    //setTimeout(function(){playerLoc[0]= 14; playerLoc[1]= 15; newScene(20)}, 1000); 
