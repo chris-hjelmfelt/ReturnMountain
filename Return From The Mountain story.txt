@@ -6,14 +6,21 @@ fix cutscenes at fight, admin, and end, single function for cutscenes, fight res
 single function to keep track of cutscenes
 01/18/2020 - changes since last update on Git: 
 main design changes, mining improvements
+12/2022
+Redesign to look like a terminal
+remove buttons and change to all keyboard control
+change maze to forest
 
 
 To Do   
 ------ 
-Improve overall design
-Add the Concentration Wall
+* Debounce in movement keys until out in the forest
+Change Fight sequence
+During mining, reset > so it doesn't say "> 1 1 1 1 1"
+Not sure if instructions are in the best location (should they be after the description and change based on story scene or movement scene?)
+
+Add the Concentration Wall game piece
 Add BookOfNames game piece
-Press C to continue
 
 
 Story Pieces
