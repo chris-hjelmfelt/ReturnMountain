@@ -54,7 +54,7 @@
   {"id":"54", "title":"Barrier", "des":"54", "n":1, "e":0, "s":0, "w":0, "inter":-1},
   {"id":"55", "title":"Barrier", "des":"55", "n":1, "e":0, "s":0, "w":0, "inter":-1},
   {"id":"56", "title":"Barrier", "des":"56", "n":1, "e":0, "s":0, "w":0, "inter":-1}, 
-  {"id":"57", "title":"Path through the dead forest", "des":"The path continues.", "n":1, "e":0, "s":1, "w":0, "inter":-1},
+  {"id":"57", "title":"A Dark Path", "des":"You think you are still underground but all around you are trees long since dead. Maybe there was a fire here.", "n":1, "e":0, "s":1, "w":0, "inter":-1},
   {"id":"58", "title":"Barrier", "des":"58", "n":1, "e":0, "s":0, "w":0, "inter":-1},
   {"id":"59", "title":"Barrier", "des":"59", "n":1, "e":0, "s":0, "w":0, "inter":-1},
   {"id":"60", "title":"Path through the dead forest", "des":"The path continues.", "n":1, "e":1, "s":0, "w":0, "inter":-1},
@@ -142,10 +142,10 @@
   {"id":"142", "title":"Forest Clearing", "des":"You see a statue of a ram covered in moss", "n":1, "e":1, "s":0, "w":0, "inter":-1},
   {"id":"143", "title":"Forest Clearing", "des":"a patch of dead grass", "n":1, "e":1, "s":0, "w":1, "inter":-1},
   {"id":"144>", "title":"Forest Clearing", "des":"a small marble bench sits here", "n":1, "e":0, "s":0, "w":1, "inter":-1},
-  {"id":"<145", "title":"Path through the dead forest", "des":"145", "n":1, "e":0, "s":1, "w":0, "inter":-1}, 
+  {"id":"<145", "title":"Path through the dead forest", "des":"The path continues", "n":1, "e":0, "s":1, "w":0, "inter":-1}, 
   {"id":"146", "title":"Barrier", "des":"146", "n":1, "e":1, "s":0, "w":1, "inter":-1},
-  {"id":"147", "title":"Path through the dead forest", "des":"The path ends here at a gravestone so old the name on it has worn away", "n":0, "e":1, "s":0, "w":0, "inter":-1},
-  {"id":"148", "title":"Path through the dead forest", "des":"148", "n":1, "e":0, "s":0, "w":1, "inter":-1},
+  {"id":"147", "title":"Path through the dead forest", "des":"The path ends here at a gravestone so old the name on it has worn away.", "n":0, "e":1, "s":0, "w":0, "inter":-1},
+  {"id":"148", "title":"Path through the dead forest", "des":"The path continues", "n":1, "e":0, "s":0, "w":1, "inter":-1},
   {"id":"149", "title":"Inner Wall", "des":"149", "n":0, "e":0, "s":0, "w":1, "inter":-1},
   {"id":"150", "title":"Underground Fields", "des":"A huge crowd of the souls of the dead stand here", "n":1, "e":0, "s":0, "w":0, "inter":24},
   {"id":"151", "title":"Inner Barrier", "des":"151", "n":1, "e":0, "s":0, "w":0, "inter":25},
@@ -253,4 +253,4 @@
   {"id":"253", "title":"Path through the dead forest", "des":"The path continues.", "n":1, "e":0, "s":0, "w":1, "inter":-1},
   {"id":"254", "title":"Barrier", "des":"254", "n":0, "e":0, "s":0, "w":1, "inter":-1},
   {"id":"255", "title":"Barrier", "des":"255", "n":1, "e":1, "s":0, "w":0, "inter":-1},
-  {"id":"256>", "title":"End of the Maze", "des":"You see a bright light ahead. You have found the way out of Deaths mountain!", "n":1, "e":0, "s":1, "w":0, "inter":-1}]
+  {"id":"256>", "title":"A tunnel entrance", "des":"You see a bright light ahead. You have found the way out of Deaths mountain!", "n":1, "e":0, "s":1, "w":0, "inter":-1}]

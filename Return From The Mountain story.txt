@@ -14,10 +14,11 @@ change maze to forest
 
 To Do   
 ------ 
-* Debounce in movement keys until out in the forest
-Change Fight sequence
-During mining, reset > so it doesn't say "> 1 1 1 1 1"
+* Is the location being hidden during the story scenes?
+* Change Fight sequence to match the game style
+Add a story scene when entering the underground forest
 Not sure if instructions are in the best location (should they be after the description and change based on story scene or movement scene?)
+Scrolling text
 
 Add the Concentration Wall game piece
 Add BookOfNames game piece

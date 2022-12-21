@@ -60,7 +60,7 @@
   
 
   <script type="text/javascript"> 
-    // Variables
+    // Variables 
     var switchScene = true
     let startPos = 1;
     let start = [];     
@@ -73,8 +73,9 @@
     let stage = start[startPos].stage;
     let playerLoc = [start[startPos].row, start[startPos].col];  
     let testing = start[startPos].test;
-    let gemDebounce = false; // prevent mining when already mining
-    let moveAllowed = false; 
+    var gemDebounce = false; // prevent mining when already mining    
+    var keyDebounce = false;
+    var moveAllowed = false; 
     let food = 0;
     let gems = 0;
     let instructOne = "Press c to continue <br>Press keys n,e,s,w to move <br>Press numbers 1-4 to interact";
@@ -153,6 +154,7 @@
       } else {
         printLoc();
       }
+      keyDebounce = false
     }
 
     // print location info

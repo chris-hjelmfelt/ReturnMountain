@@ -14,67 +14,74 @@
           optC = keyboardHelper(51), // 3
           optD = keyboardHelper(52); // 4
           space = keyboardHelper(32);
-          document.getElementById("playerX").additional = "u";
+      document.getElementById("playerX").additional = "u";
 
       // Continue 
       cont1.press = () => { 
         if (switchScene == true){
-          document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' c'  
-          setTimeout(function(){newScene(1)}, 1000);
+          if (keyDebounce === false && moveAllowed == false) {
+            keyDebounce = true
+            document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' c'  
+            setTimeout(function(){newScene(1)}, 750);
+          }
         }        
       }
 
       // Direction Buttons
       north.press = () => {
-        if (stage == 14){   // during fight scene this moves the players facing direction
-          document.getElementById("playerX").innerHTML = 	"&uArr;";
-          document.getElementById("playerX").additional = "u";
-        } else {
-          document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' n'  
-          if (locations[playerLoc[0]][playerLoc[1]].n == 1 && moveAllowed == true){
-            playerLoc[0] -= 1;
-            setTimeout(function(){moveKey()}, 1000);
+          if (stage == 14){   // during fight scene this moves the players facing direction
+            document.getElementById("playerX").innerHTML = 	"&uArr;";
+            document.getElementById("playerX").additional = "u";
+          } else {  
+            if (locations[playerLoc[0]][playerLoc[1]].n == 1 && keyDebounce === false && moveAllowed == true){
+              keyDebounce = true              
+              document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' n'
+              playerLoc[0] -= 1;
+              setTimeout(function(){moveKey()}, 750);
+            }
           }
-        }
       };
 
       east.press = () => {
-        if (stage == 14){
-          document.getElementById("playerX").innerHTML = 	"&rArr;";
-          document.getElementById("playerX").additional = "r";
-        } else {
-          document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' e' 
-          if (locations[playerLoc[0]][playerLoc[1]].e == 1 && moveAllowed == true){
-            playerLoc[1] += 1;            
-            setTimeout(function(){moveKey()}, 1000);
+          if (stage == 14){
+            document.getElementById("playerX").innerHTML = 	"&rArr;";
+            document.getElementById("playerX").additional = "r";
+          } else {
+            if (locations[playerLoc[0]][playerLoc[1]].e == 1 && keyDebounce === false && moveAllowed == true){
+              keyDebounce = true
+              document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' e' 
+              playerLoc[1] += 1;            
+              setTimeout(function(){moveKey()}, 750);
+            }
           }
-        }
       }
 
       south.press = () => {
-        if (stage == 14){
-          document.getElementById("playerX").innerHTML = 	"&dArr;";
-          document.getElementById("playerX").additional = "d";
-        } else {
-          document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' s' 
-          if (locations[playerLoc[0]][playerLoc[1]].s == 1 && moveAllowed == true){
-            playerLoc[0] += 1;
-            setTimeout(function(){moveKey()}, 1000);
+          if (stage == 14){
+            document.getElementById("playerX").innerHTML = 	"&dArr;";
+            document.getElementById("playerX").additional = "d";
+          } else {
+            if (locations[playerLoc[0]][playerLoc[1]].s == 1 && keyDebounce === false && moveAllowed == true){
+              keyDebounce = true
+              document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' s' 
+              playerLoc[0] += 1;
+              setTimeout(function(){moveKey()}, 750);
+            }
           }
-        }
       }
 
       west.press = () => {
-        if (stage == 14){
-          document.getElementById("playerX").innerHTML = 	"&lArr;";
-          document.getElementById("playerX").additional = "l";
-        } else {
-          document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' w' 
-          if (locations[playerLoc[0]][playerLoc[1]].w == 1 && moveAllowed == true){
-            playerLoc[1] -= 1;
-            setTimeout(function(){moveKey()}, 1000);
+          if (stage == 14){
+            document.getElementById("playerX").innerHTML = 	"&lArr;";
+            document.getElementById("playerX").additional = "l";
+          } else {
+            if (locations[playerLoc[0]][playerLoc[1]].w == 1 && keyDebounce === false && moveAllowed == true){
+              keyDebounce = true
+              document.getElementById("input").innerHTML = document.getElementById("input").innerHTML + ' w' 
+              playerLoc[1] -= 1;
+              setTimeout(function(){moveKey()}, 750);
+            }
           }
-        }
       }
       
       // action options
@@ -103,6 +110,7 @@
             document.getElementById("collect").innerHTML = "Bites of Food: " + food + "/100"; 
           }
         }
+        setTimeout(function() {document.getElementById("input").innerHTML = '&#62;'}, 750)
       }
 
       optB.press = () => {      
@@ -117,6 +125,7 @@
             document.getElementById("collect").innerHTML = "Bites of Food: " + food + "/100"; 
           }
         }
+        setTimeout(function() {document.getElementById("input").innerHTML = '&#62;'}, 750)
       }
       
       optC.press = () => {      
@@ -131,6 +140,7 @@
             document.getElementById("collect").innerHTML = "Bites of Food: " + food + "/100"; 
           }
         }
+        setTimeout(function() {document.getElementById("input").innerHTML = '&#62;'}, 750)
       }
 
       optD.press = () => {  

@@ -64,6 +64,7 @@
           cutSceneStage(storyEighteen);
           document.getElementById("end").style.visibility = 'visible';
         }
+        keyDebounce = false
     }        
 
     // Conversations etc.
