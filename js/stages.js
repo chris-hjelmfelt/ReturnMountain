@@ -74,7 +74,6 @@
       document.getElementById("message2").innerHTML = "";
       document.getElementById("menu").innerHTML = ""; 
       document.getElementById("contents").innerHTML = "";
-      document.getElementById("openmap1").style.visibility = 'collapse';
       document.getElementById("storyPart").style.visibility = 'visible';    
       switchScene = true;
       moveAllowed = false;
@@ -82,7 +81,6 @@
 
     // Show location information and allow player to move around
     function playerMovementStage() {
-      document.getElementById("openmap1").style.visibility = 'visible';  
       document.getElementById("storyPart").style.visibility = 'collapse';  
       document.getElementById("storyPart").innerHTML = '';   
       switchScene = false;          
@@ -97,5 +95,7 @@
       gemDebounce = false; 
     }
 
-    // testing fight
+    // testing fight scene
+    //setTimeout(function(){playerLoc[0]= 8; playerLoc[1]= 10; newScene(12)}, 1000); 
+    // testing end scene
     //setTimeout(function(){playerLoc[0]= 14; playerLoc[1]= 15; newScene(20)}, 1000); 

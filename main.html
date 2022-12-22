@@ -46,9 +46,6 @@
   <div id="helperInfo">        
     <p id="instructions"></p>    
     &nbsp;<br>
-    <button id="openmap1" onclick="openMap(1)">Partial Map (M)</button><br>   
-    &nbsp;<br> 
-    <img id="map1" src="images/partial_map.jpg" width="300">
     <div id="fightstats">
       <span id="hit">Hit Points:</span><br>
       <span id="minons">Minons:</span><br>
@@ -79,7 +76,7 @@
     let food = 0;
     let gems = 0;
     let instructOne = "Press c to continue <br>Press keys n,e,s,w to move <br>Press numbers 1-4 to interact";
-    let instructTwo = "Press arrow keys or WASD to turn <br>Press Spacebar to hit";
+    let instructTwo = "Press arrow keys to turn. Press Spacebar to hit";
 
     // Story pieces for cutaway scenes
     let storyOne = "You awake in the dark, the waters of forgetfulness still damp upon your lips.<br> You have a sense of having lost something. You were on your way somewhere important...";
@@ -116,21 +113,13 @@
       document.getElementById("collect").style.visibility = 'hidden';
       document.getElementById("fighting").style.visibility = 'hidden';
       document.getElementById("fightstats").style.visibility = 'hidden';
-      document.getElementById("map1").style.visibility = 'hidden';     
       document.getElementById("storyBox").style.visibility = 'visible';
-      document.getElementById("openmap1").style.visibility = 'hidden';  
       document.getElementById("end").style.visibility = 'hidden';  
       
       
-      // for testing:
-      if (testing == true) {
-        document.getElementById("menu").style.visibility = 'visible'; 
-        document.getElementById("message2").style.visibility = 'visible';   
-        window.setTimeout(moveKey, 1000);                 
-        window.setTimeout(printLoc, 1000);    
-        moveAllowed = true;       
-        document.getElementById("storyBox").style.visibility = 'hidden';
-      }
+      // for mobile testing:
+      console.log(navigator.userAgent)
+     
     }  
     
     // Looks for player in a certain location at a certain stage
@@ -212,15 +201,6 @@
       }         
       return contString;
     }
-
-    function openMap(version) {
-      vis = document.getElementById("map1").style.visibility;
-      if (version == 1 && vis == 'hidden')
-        document.getElementById("map1").style.visibility = 'visible';
-      else
-        document.getElementById("map1").style.visibility = 'hidden';
-    }
-
  
     // Called by keyboard functions using setTimeout to display a message for a second or so
     function resetMessage() {

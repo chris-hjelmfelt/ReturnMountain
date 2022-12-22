@@ -14,6 +14,8 @@ change maze to forest
 
 To Do   
 ------ 
+* Note for mobile users about needing a keyboard and/or a small strip of buttons (c,n,e,s,w,1,2,3) that only shows for them
+  with an explaination about it
 * Is the location being hidden during the story scenes?
 * Change Fight sequence to match the game style
 Add a story scene when entering the underground forest
@@ -204,7 +206,3 @@ Concentration Wall - alpha numeric text scrolls by (faster on hard),
 	click arrows in correct order to break through
 	compass helps quide the way
 
-
-Troubleshooting
--- Minons weren't being removed from fight board after capture
-  -- I hadn't cleared the interval calling moveMinons() and I set attack = true; in setupFight() instead of startFight()

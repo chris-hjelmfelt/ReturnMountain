@@ -30,10 +30,11 @@ setupFight();
 function startFight() {  
   attack = true;    
   console.log('fight')
-  document.getElementById("storyBox").style.visibility = 'collapse';
+  document.getElementById("storyBox").style.display = 'none'; 
+  document.getElementById("instructions").style.display = 'none'; 
   document.getElementById("fighting").style.visibility = 'visible';
   document.getElementById("fightstats").style.visibility = 'visible';
-  document.getElementById("fightalert").innerHTML = "Use spacebar to hit!"
+  document.getElementById("fightalert").innerHTML = "Use spacebar to hit and arrow keys to turn"
   document.getElementById("howto").innerHTML = instructTwo;
   document.getElementById("minons").innerHTML = "Minons: " + (totalMinons-deadMinons) + "/" + totalMinons;
   document.getElementById("hit").innerHTML = "Hit Points: " + hitPoints + "/" + totalhitPoints;
@@ -252,7 +253,8 @@ function playerWin() {
   clearInterval(moveEnemy);
   document.getElementById("fighting").style.display = 'none';
   document.getElementById("fightstats").style.display = 'none';  
-  document.getElementById("storyBox").style.visibility = 'visible';  
+  document.getElementById("storyBox").style.display = 'block';
+  document.getElementById("instructions").style.display = 'block'; 
   newScene(1);
 }
 
@@ -263,8 +265,9 @@ function playerCaptured() {
   setupFight();
   document.getElementById("fighting").style.visibility = 'collapse';
   document.getElementById("fightstats").style.visibility = 'collapse';
-  document.getElementById("storyBox").style.visibility = 'visible'; 
-  document.getElementById("message1").innerHTML = "You were captured";
+  document.getElementById("storyBox").style.display = 'block'; 
+  document.getElementById("instructions").style.display = 'block'; 
+  document.getElementById("message1").innerHTML = "You lost, and they dumped you back along the path you came from";
   document.getElementById("collect").style.visibility = 'hidden';
   playerLoc = [8,10];
   stage = 12;  
