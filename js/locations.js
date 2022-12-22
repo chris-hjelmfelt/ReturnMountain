@@ -12,7 +12,7 @@ xhttp.onreadystatechange = function() {
     fillLocations(xhttp.responseText);    
   }
 };
-xhttp.open("GET", "../json/places.json", true);
+xhttp.open("GET", "json/places.json", true);
 xhttp.send();
 
 // Get data from interact.json
@@ -23,7 +23,7 @@ xhttp2.onreadystatechange = function() {
     fillActions(xhttp2.responseText);    
   }
 };
-xhttp2.open("GET", "../json/interact.json", true);
+xhttp2.open("GET", "json/interact.json", true);
 xhttp2.send();
 
 // Use JSON to fill the locations array with proper info
